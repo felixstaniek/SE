@@ -1,0 +1,14 @@
+\section{Finite Elemente Methoden im Zeitbereich}
+FEM funktioniert bis zur Semidiskreten L\"osung wie sonst auch, daher hier kurz gefasst.
+\par
+Die L\"osung wird zun\"achst mit st\"uckweise linearen Fuktionen abgetastet (H\"utchenfkt oder so). Diese haben folgende Eigenschaften:
+\par
+\begin{itemize}
+	\item Linear Unabh\"angig (nur abh\"angig vom Funktionswert am Punkt selbst)
+	\item Kontinuierlich (Da die L\"osung auch Kontinuierlich sein soll)
+	\item Kompakter Tr\"ager (d\"unn besetzte Matrix, leichte Implementierung von Randwerten)
+\end{itemize}
+Schwache Fomulierung. Je nach Problem erh\"alt man eie Massematrix $M$ (Matrix mit den Basen selbst) und eine Steifigkeitsmatrix $P_x$ (Matrix mit den Ableitungen der Basen)
+
+\subsection{Semidiskrete L\"osung}
+

@@ -1,0 +1,215 @@
+\section{Stabilit\"atsanalyse von Finite-Differenzen-Methoden}
+Zur Stabilit\"atsanalyse der Finite-Differenzen Verfahren wird die Von-Neumann Stabilit\"atsanalyse eingef\"uhrt.
+
+\subsection{Von-Neumann Stabilit\"at}
+Die Von-Neumann Analyse entspricht der Fourier-Analyse. Die Fourier-Repr\"asentation ist dabei periodisch. Man betrachtet zun\"achst das Beispiel der Skalaren Wellengleichung
+\par
+\begin{equation*}
+	\frac{\partial u}{\pet} + a\frac{\partial u}{\pex} = 0
+\end{equation*}
+mit den Randwerten.
+\par
+\begin{equation*}
+	u(x,0) = u_0(x) \textrm{ (Anfangsbed.)~~~~\&~~~~} u(0,t) = u(D,t)\textrm{ (periodischer Randwert) }
+\end{equation*}
+Unter der Veraussetzung einer kontinierlichen Fourierentwicklung sind diese Bedingungen automatisch erf\"ullt. Diese kann kontinuierlich und beliebig:
+\par
+\begin{equation*}
+	f(x) = \frac{1}{2\pi} \int \partial k f(k) \exp(ikx)
+\end{equation*}
+oder wie in diesem Fall kontinierlich und periodisch:
+\par
+\begin{equation*}
+	u(x,t) = \sum_{k=-\infty}^\infty b_k(t) \exp\big(\frac{2\pi ikx}{D}\big)
+\end{equation*}
+sein.
+\par
+Die Fourier Koeffizienten ergeben sich dabei durch das Skalarprodukt der Funktion, sowie derer Orthonormalbasen. Die Orthonormalbasen lassen sich dabei als die diskreten Fourier Moden darstellen:
+\par
+\begin{equation*}
+	\Phi_k =\left(\begin{array}{c}\varphi_{k,0}\\\varphi_{k,1}\\\vdots\\ \varphi_{k,N-1}\end{array}\right) \Rightarrow \begin{array}{c} \varphi_{k}(x) = \varphi^{\frac{2\pi i k x}{D}}\\ \varphi_{k,0}(x) = \varphi^{\frac{2\pi i k 0 \dex}{D}}\\ \varphi_{k,1}(x) = \varphi^{\frac{2\pi i k 1 \dex}{D}}\\\end{array}
+\end{equation*}
+$b_k$ ergibt sich folglich \"uber das Skalarprodukt:
+\par
+\begin{equation*}
+	b_k(t) = \langle u(x,t), \varphi_k(x)\rangle = \frac{1}{D} \int_0^D u(x,t)\big(\varphi_k(x)\big)^* dx
+\end{equation*}
+F\"ur Funktion $u(t)$ ergibt sich folglich nach der Fourierentwicklung:
+\par
+\begin{equation*}
+	u(t) = \sum_{k=-\infty}^\infty b_k(t) \Phi_k
+\end{equation*}
+Unter der Voraussetzung der N-Periodizit\"at:
+\par
+\begin{equation*}
+	u(t) = \sum_{k=-N/2-1}^{N/2} b_k(t)\Phi_k
+\end{equation*}
+Zusammenfassend gilt:
+\begin{equation*}
+	f(x) \Rightarrow \int \delta_k~~;~~~u(x) \Rightarrow \sum_{k=-\infty}^\infty ~~;~~~ u\Rightarrow \sum_{k=-N/2-1}^{N/2}
+\end{equation*}
+
+
+\subsubsection{Diskreter Verschiebungsoperator}
+Die genannte Repr\"asentation l\"asst sich f\"ur den diskreten Verschiebungsoperator nutzen. Dieser verschiebt die L\"osung genau um einen Gitterpunkt. Es ist auch eine h\"ohere Ordnung des Operators m\"oglich:
+\par
+\begin{equation*}
+	\bs{(S\cdot u)}_i = \bs{(u)}_{i+1} ~~;~~~ \bs{(S^s\cdot u)}_i = u_{i+s}
+\end{equation*}
+Zu diesem lassen sich Eigenfunktionen definieren. Aus diesen kann die normalisierte Wellenzahl abgelesen werden.
+\par
+\begin{equation*}
+	\bs{(S\cdot \Phi_k)}_i = \exp(\frac{2\pi k(i+1)\dex}{D}) = \exp(\frac{2\pi i k\dex}{D})\bs{(\Phi_k)}_i \Rightarrow \bs{S} \cdot \Phi_k = \exp(i\beta(k))\Phi_k
+\end{equation*}
+\begin{equation*}
+	\textrm{Mit } \beta = \beta(k) =  \frac{2\pi k \dex}{D}
+\end{equation*}
+
+\subsubsection{Zeitentwicklungsoperator}
+Der Zeitentwicklungsoperator funktioniert analog zum Verschiebungsoperator. Hierbei wird die L\"osung um einen Zeitpunkt verschoben. Es gilt nach Definition:
+\par
+\begin{equation*}
+	\bs{L\cdot u} = \bs{L} \sum_{-N/2+1}^{N/2} b_k \Phi_k = \sum_{-N/2+1}^{N/2} b_k \lambda(\beta) \Phi_k~~~~\textrm{mit Verst\"arkungsfaktor:}~~~~\lambda(\beta) = \sum_{s=-s_1}^{S_2} c_s e^{i s \beta}
+\end{equation*}
+Nach der Defintion der Stabilit\"at gilt, dass das Schema f\"ur die Zeitentwicklung nicht divergieren darf. Dies l\"asst sich ausdr\"ucken als:
+\par
+\begin{equation*}
+	\|\bs{L\cdot u^n}\|_2 \leq \|\bs{u^n}\|_2~~\textrm{, bzw:}~~\|\bs{u^{n+1}}\|_2 \leq \|\bs{u^n}\|_2
+\end{equation*}
+Damit ist die Bedingung f\"ur die numerische Stabilit\"at:
+\par
+\begin{equation*}
+	|\lambda(\beta)| \leq 1
+\end{equation*}
+
+\subsubsection{Die Courant-Zahl}
+Der ideale Zeitschritt eines Verfahrens, bei dem die L\"osung so genau wie m\"oglich, aber trotzdem noch stabil ist, l\"asst sich durch die Courant-Zahl angeben. Dies wird am Beispiel des Euler-Explizit-Vorw\"arts Verfahren deutlich:
+\par
+\begin{equation*}
+	u_i^{n+1} = u_i^n - \frac{a\delt}{\dex}(u_{i+1}^n - u_i^n)
+\end{equation*}
+Die Courant-Zahl ist dann:
+\par
+\begin{equation*}
+	\sigma = \frac{a\delt}{\dex}
+\end{equation*}
+Es ist leicht ersichtlich, dass die Courant-Zahl nur perfekt ausgelegt werden kann, wenn $\dex$, also die Gitterweite konstant ist. $a$ zeigt dabei die Ausbreitungsrichtung an.
+
+\subsubsection{CFL-Stabilit\"at}
+Die Courant-Friedrichs-Law Stabilit\"at beruft sich auf die Auslegung der Courant-Zahl und der daraus resultierenden Verst\"arkung pro Zeitschritt. Das Verfahren ist demnach stabil, wenn:
+\par
+\begin{equation*}
+	|\sigma| = |\frac{a\delt}{\dex}| \leq 1 ~~~\Rightarrow~~~ |\lambda(\beta)|^2 \leq 1
+\end{equation*}
+Damit ist ersichtlich, dass ein Zentral-Zentral Verfahren f\"ur alle F\"alle stabil ist, und daher auch h\"aufig Verwendung findet. Allerdings f\"uhrt dieses zu anderen Fehlerarten. Das wird im folgenden behandelt.
+
+\subsubsection{Arten der Fehler bei Finiten Differenzen}
+Die Fehler bei Finiten Differenzen teilen sich vorallem im zwei Arten:
+\par
+\begin{itemize}
+	\item \textbf{Dissipation}: Fehler der Amplitude
+	\item \textbf{Dispersion}: Fehler der Phase
+\end{itemize}
+Diese ergeben sich aus der Verst\"arkung, bzw. aus der Phasenverschiebung in jedem Schritt. F\"ur die Dissipation gilt:
+\par
+\begin{equation*}
+	\epsilon_A = 1 - |\lambda(\beta)|
+\end{equation*}
+F\"ur die Dispersion muss zun\"achst eine \"Uberlegung mittels der exakten L\"osung angestellt werden.
+\par
+\begin{multline*}
+	u(x,t) = \sum_{k=-\infty}^{\infty}b_k(t) \exp(\frac{2\pi i k x}{D}) \\~~~\Rightarrow~~~ u(x,t+\delt) = u(x-a\delt,t) = \sum_{k=-\infty}^{\infty}b_k(t)  \exp(-\frac{2\pi i k a\delt}{D}) \exp(\frac{2\pi i k x}{D})
+\end{multline*}
+\"Uber den neuen weiteren Term, welcher aus dieser \"Uberlegung folgt, l\"asst sich nun die exakte Phasendifferenz in einem Schritt bestimmen:
+\par
+\begin{equation*}
+	\Delta \varphi = -\frac{2\pi k a \delt}{D} = -\sigma\beta
+\end{equation*}
+\"Uber die Differenz der Phase der numerischen und der exakten L\"osung folgt schlie\ss{}lich:
+\par
+\begin{equation*}
+	\epsilon_P = \frac{Arg[\lambda(\beta)]}{-\sigma\beta}
+\end{equation*}
+Es zeigt sich, dass verschiedene Verfahren verschieden ausgepr\"agte Fehler ausweisen.
+Am besten ist das an dem Beispiel einer Rechteck-Welle zu sehen.
+
+\newpage
+
+Das Zentral-Zentral Verfahren zeigt sehr ausgepr\"agte Phasenfehler:
+\par
+\begin{figure*}[ht]
+	\centering
+	\subfloat[]{\includegraphics[width = 0.5\textwidth]{phase_err1}}
+	\subfloat[]{\includegraphics[width = 0.5\textwidth]{phase_err2}}
+\end{figure*}
+W\"ahrend die Vorw\"arts, bzw. R\"uckw\"artsverfahren vorallem Amplitudenfehler aufweisen:
+\par
+\begin{figure*}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{amp_err2}
+\end{figure*}
+
+\section{Erweiterte Schemata f\"ur Finite Differenzen}
+Um diese Fehler zu minimieren, wurden weitere Verfahren zur Beschreibung von Finiten Differenzen entwickelt. Diese sind im folgenden Absatz beschrieben.
+
+\subsection{Cauchy-Kowalewski Prozedur}
+Die Cauchy-Kowalewski Prozedur sieht vor, dass die Zeitableitungen durch r\"aumliche Ableitungen ersetzt werden. Daf\"ur wird aus der Skalaren Wellengleichung die Beziehung herlgeleitet.
+\par
+\begin{equation*}
+	\frac{\partial u}{\pet} + a \frac{\partial u}{\pex} = 0
+\end{equation*}
+Daraus l\"asst sich in erster und zweiter Ordnung die Zeitableitung in eine r\"aumliche Ableitung \"uberf\"uhren:
+\par
+\begin{align*}
+	\frac{\partial u}{\pet} &= -a \frac{\partial u}{\pex} \\
+	\frac{\partial^2 u}{\pet^2} &= a^2\frac{\partial^2 u}{\pex^2}
+\end{align*}
+
+\subsection{Lax-Wendroff}
+Das Lax-Wendroff Schema macht sich die Cauchy-Kowalewski Prozedur zunutze. Dazu wird zun\"achst eine Taylor Entwicklung zweiter Ordnung des Problems angesetzt:
+\par
+\begin{equation*}
+	u_i^{n+1} = u_i^n + \delt\bigg(\frac{\partial u}{\pet}\bigg) + \delt^2\bigg(\frac{\partial^2 u}{\pet^2}\bigg) + O(\delt^3)
+\end{equation*}
+Anschlie\ss{}end werden mittels Cauchy-Kowalewski die Zeitableitungen ersetzt:
+\par
+\begin{equation*}
+	u_i^{n+1} = u_i^n + a\delt\bigg(\frac{\partial u}{\pex}\bigg) + a^2\delt^2\bigg(\frac{\partial^2 u}{\pex^2}\bigg) + O(\delt^3)
+\end{equation*}
+Die r\"aumlichen Ableitungen werden nun mittels zentraler Differenzen approximiert. Es folgt:
+\par
+\begin{equation*}
+	u_i^{n+1} = u_i^n + a\delt\bigg(\frac{u^n_{i+1} - u^n_{i-1}}{2\dex}\bigg) + \frac{a^2\delt^2}{2}\bigg(\frac{u^n_{i+1} - 2u^n_i + u^n_{i-1}}{\dex^2}\bigg) + O(\delt^3)
+\end{equation*}
+Nun l\"asst sich die Courant-Zahl einsetzen:
+\par
+\begin{equation*}
+	u_i^{n+1} = u_i^n + \frac{\sigma}{2}(u^n_{i+1} - u^n_{i-1}) + \frac{\sigma^2}{2}(u^n_{i+1} - 2u^n_i + u^n_{i-1})
+\end{equation*}
+
+\subsection{Beam-Warming}
+Das Beam-Warming Schema funktionier analog zum Lax-Wendroff Schema. Allerdings werden hierbei die r\"aumlichen Ableitungen mittels R\"uckw\"artsdifferenzen der zweiten Ordnung bestimmt. Diese lauten:
+\par
+\begin{align*}
+	\frac{\partial u}{\pex}\bigg|_i &= \frac{3u_i - 4u_{i-1} + u_{i-2}}{2\dex} + O(\dex^2) \\
+	\frac{\partial^2 u}{\pex^2}\bigg|_i &= \frac{(u_i - u_{i-1}) -  (u_{i-1} - u_{i-2}}{2\dex^2} + O(\dex
+\end{align*}
+Daraus folgt analog f\"ur die Gleichung mit Courant-Zahl:
+\par
+\begin{equation*}
+	u_i^{n+1} = u_i^n + \frac{\sigma}{2}(3u^n_i - 4u^n_{i-1} + u^n_{i-2}) + \frac{\sigma^2}{2}(u^n_{i} - 2u^n_{i-1} + u^n_{i-2}) 
+\end{equation*}
+
+\subsection{Fromm}
+Genau wie bei vorherigen Verfahren gilt auch hierbei, dass R\"\"uckw\"atsverfahren Amplitudenfehler erzeugen, w\"ahrend zentrale Verfahren Phasenfehler erzeugen. Daher entstehen bei Beam Warming mehr Amplitudenfehler und bei Lax-Wendroff mehr Phasenfehler.
+\par
+Zur Minimerung beider Fehler verwendet das Fromm Verfahren als Ansatz, dass das Ergebnis der beiden Verfahren gemittelt wird.
+
+\section{Zusammenfassung}
+\begin{itemize}
+	\item Zentrale Verfahren k\"onnen neutral-stabil sein.
+	\item Vorw\"artsverfahren sind stabil f\"ur r\"uckw\"arts laufende Wellen.
+	\item R\"uckw\"artsverfahren sind stabil f\"ur vorw\"arts laufende Wellen.
+	\item UPWIND: Zeitableitungen immer entgegen der Wellenausbreitung.
+	\item Upwind-Verfahren sind dissipativ, aber k\"onnen geringere Dispersionsfehler aufweisen
+\end{itemize}

@@ -1,0 +1,39 @@
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{siunitx} 
+\sisetup{locale=DE, per-mode=symbol}
+
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{import}
+
+\usepackage{multicol}
+
+\usepackage{graphicx}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.12}
+
+\usepackage{calrsfs}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+
+\usepackage{setspace}
+
+\usepackage{cancel}
+
+\usepackage{listings}
+
+\usepackage{subfig}
+\usepackage[style=alphabetic, backend=biber]{biblatex}
+% sorting=none, alldates=short, abbreviate=false, maxcitenames=2, maxbibnames=99, eprint=false, hyperref=auto,
+\usepackage{pdfpages}
+\usepackage{epstopdf}
+\graphicspath{{graph/}}
+
+\setinstitutionlogo[width]{temf}
+\title{Verfahren und Anwendungen der Feldsimulation III - Zusammenfassung}
+\subtitle{Autor: Julian Buschbaum \\ Dozent: PD Dr.rer.nat. Erion Gjonaj}
+
+

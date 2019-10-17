@@ -1,0 +1,220 @@
+\section{Finite Volumen Verfahren in 1D}
+Die finiten Volumen basieren auf dem Grundsatz. Dass die Massen beim \"Ubergang von einem Bereich in einen Benachbarten erhalten bleiben. Dadurch kann als Grundsatz die Massenerhaltung angesetzt werden. 
+\par
+Zun\"achst betrachten wir die Allgemeine Kontinuit\"atsgleichung. Diese kann in mehreren Formen dargestellt werden. 
+\par
+\begin{align*}
+	\frac{\partial u}{\pet} + \frac{\partial f}{\pex} &= 0~~~~~\textrm{Differentialform} \\
+	\frac{d}{dt}\int_{x_1}^{x_2} u(x,t)dx &= f(u_1,x_1,t) - f(u_2,x_2,t)~~~~~\textrm{gemischte Form} \\
+	\int_{x_1}^{x_2}[u(x,t_2) - u(x,t_1)]dx &= \int_{t_1}^{t_2}[f(u_1,x_1,t) - f(u_2,x_2,t)]dt~~~~~\textrm{Intergralform}
+\end{align*}
+Offensichtlich ist die erste Form nur l\"osbar, sofern die Funktion u sowohl in x, als auch in t differenzierbar ist. Eine solche Gleichung ist also also in jedem Fall l\"osbar. Diese Gleichung nennt man auch die ``klassische'' oder ``starke'' L\"osung der Kontinuit\"atsgleichung. 
+\par
+Ist die Funktion nicht differenzierbar, so existiert trotzdem eine L\"osung f\"ur die Integralform. Diese L\"osung wird auch als ``schwache'' L\"osung der Kontinuit\"atsgleichung genannt.
+
+\subsection{Das Riemann Problem}
+Das Riemann Problem ist eine Formulierung, welche sich mit der Behandlung von Unstetigkeiten befasst. Die Funktion wird dabei so definiert, dass sie vor dem Sprung und nach dem Sprung jeweils einen Festen Wert annimmt. Es gilt:
+\par
+\begin{multicols}{2}
+\includegraphics[width=0.55\textwidth]{riemann_prob}
+\par
+\begin{equation*}
+	\frac{\partial u}{\pet} + \frac{\partial f}{\pex} = 0~~~~~\Leftrightarrow~~~~~u_0(x) = \begin{array}{l} u^-~~~x<0 \\ u^+~~~x>0\end{array}
+\end{equation*}
+\end{multicols}
+\textbf{Beispiele:}\\
+\textbf{Skalare Wellengleichung:}
+\par
+\begin{equation*}
+	\frac{\partial u}{\pet} + c\frac{\partial u}{\pex} = 0
+\end{equation*}
+\begin{equation*}
+	\Rightarrow u(x,t)=\begin{array}{l l} u^-, ~~~ x<ct \\ u^+, ~~~ x>ct \end{array} ~~~\rightarrow~~~ u(x,t) = u_0(x-ct)
+\end{equation*}
+
+\newpage
+
+\textbf{Burgers Gleichung:}
+\par
+\begin{equation*}
+	\frac{\partial u}{\pet} + u\frac{\partial u}{\pex} = 0, ~~~~~ f(u)=\frac{u^2}{2}
+\end{equation*}
+\tudrule
+\begin{multicols}{2}
+	$u^->u^+$\\
+	\includegraphics[width=0.5\textwidth]{buerger1}
+	\begin{equation}
+		u(x,t) = \begin{array}{l} u^-,~~~x<\frac{1}{2}(u^++u^-)t \\ u^+,~~~x>\frac{1}{2}(u^++u^-)t \end{array}
+	\end{equation}
+\vfill\null
+\columnbreak
+	$u^-<u^+$\\
+	\includegraphics[width=0.5\textwidth]{buerger2}
+	\begin{equation*}
+		u(x,t) = \begin{array}{l} u^-,~~~x<u^-t \\ x/t, ~~~ u^-t<x<u^+t \\ u^+,~~~x>u^+t \end{array}
+	\end{equation*}
+\end{multicols}
+Die Form, bzw. die Art des Sprungs h\"angt also immer von der Gleichung ab, welche betrachtet wird.
+
+\subsection{Rankine-Hugeniot Beziehung}
+Die Rankine-Hugeniot Beziehung stellt einen Zusammenhang zwischen den Funktionwerten, sowie den Ausbreitungsgeschwindigkeiten an Unstetigkeiten her. Diese wird aus der Intergralform der Kontinuit\"atsgleichung hergeleitet:
+\par
+\begin{equation*}
+	\frac{d}{dt}\int_{x_1}^{x_2} u(x,t)dx = f(u^-) - f(u^+)
+\end{equation*}
+Wir hierbei die Schockwelle eingesetzt ergibt sich als Aufl\"osung mit der Geschwindigkeit $s$:
+\par
+\begin{equation*}
+	\frac{d}{dt}[(x_0 + st-x_1)u^- + (x_2-x_0-st)u^+] = f(u^-) - f(u^+)
+\end{equation*}
+Daraus ergibt sich die Rankine-Hugeniot Beziehung:
+\par
+\begin{equation*}
+	s(u^- - u^+) = f(u^-) - f(u^+)
+\end{equation*}
+
+\subsection{Finite Volumen f\"ur Maxwell Gleichungen}
+Finite Volumen sind in der bisher eingef\"uhrten Form in einer Dimension definiert. Zur L\"osung der Maxwell Gleichungen sind daher noch weitere Vereinfachungen n\"otig. Betrachtet wird hierzu ein beliebiges 3D Gebiet. Auf diesem wird ein inifinitesimaler Zylinder an der Oberfl\"ache vorgestellt.
+\par
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{3ddomain}
+\end{figure}
+Zur Herleitung werden die Maxwell Gelichungen in Differentialform verwendet. Diese k\"onnen wie Folgt als Matrixform geschrieben werden:
+\par
+\begin{equation*}
+	\begin{array}{l l } \frac{\partial \bs{B}}{\pet} + \nabla \times \bs{E} = 0 \\ \frac{\partial \bs{D}}{\pet} - \nabla \times \bs{H} = 0 \end{array} ~~~ \Rightarrow ~~~ \frac{d}{dt}\int_{-\epsilon}^{+\epsilon}\begin{pmatrix} \overline{\bs{B}} \\ \overline{\bs{D}} \end{pmatrix}dn + \begin{pmatrix} \bs{n} \times \overline{\bs{E}} \\ -\bs{n} \times \overline{\bs{H}} \end{pmatrix}_{+\epsilon} - \begin{pmatrix} \bs{n} \times \overline{\bs{E}} \\ -\bs{n} \times \overline{\bs{H}} \end{pmatrix}_{-\epsilon} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+\end{equation*}
+Mithilfe von r\"aumlicher Intergration folgt die Differentialform:
+\par
+\begin{equation*}
+	\frac{\partial}{\pet}\begin{pmatrix} \overline{\bs{B}} \\ \overline{\bs{D}} \end{pmatrix} + \frac{\partial}{\partial n} \begin{pmatrix} \bs{n} \times \overline{\bs{E}} \\ -\bs{n} \times \overline{\bs{H}} \end{pmatrix} = 0
+\end{equation*}
+Somit wurde eine eindimensionale Beziehung f\"ur die L\"osung der Maxwell-Gleichungen an den R\"andern hergestellt. Diese kann mit den vorgestellten Ans\"atzen gel\"ost werden.
+
+\subsubsection{Fortpflanzung von Unstetigkeiten}
+Um Stetigkeitsbedingungen beim FV Verfahren abbilden zu k\"onnen, m\"ussen diese Beziehungen in die Riemann L\"osung eingearbeitet werden. Bei bekannten Feldern in den Domainen ($\bs{E^-}$,$\bs{H^-}$ / $\bs{E^+}$, $\bs{H^+}$), werden dazu die Gr\"o\ss{}en in der N\"ahe des \"Ubergangs ($\bs{E^*}$, $\bs{H^*}$ / $\bs{E^{**}}$, $\bs{H^{**}}$) k\"unstlich eingef\"uhrt.
+\par
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{discontinuity}
+\end{figure}
+Anschlie\ss{}end lassen sich hieraus Rankine-Hugeniot Beziehungen f\"ur Maxwell Gleichungen herleiten. Es folgen die Bedingungen f\"ur die Ausbreitenden Wellen:
+\par
+\begin{align*}
+	-c^-(\bs{B^*} - \bs{B^-}) &= \bs{n}\times(\bs{E^*} - \bs{E^-}) \\
+	+c^+(\bs{B^+} - \bs{B^{**}}) &= \bs{n}\times(\bs{E^+} - \bs{E^{**}})
+\end{align*}
+Sowie die Stetigkeitsbedingungen am \"Ubergang der Matrialien ableiten:
+\par
+\begin{align*}
+	0 &= \bs{n}\times(\bs{E^{**}} - \bs{E^*}) \\
+	0 &= \bs{n}\times(\bs{H^{**}} - \bs{H^*})
+\end{align*}
+Daraus l\"asst sich nach umformen und rausk\"urzen (muss man nicht so genau wissen) eine Riemann L\"osung bestimmen, welche nur noch von den Feldvariablen innerhalb der Dom\"anen abh\"angt:
+\par
+\begin{align*}
+	\bs{n}\times\bs{E^*} &= \bs{n}\times\frac{[Y^+\bs{E^+} + \bs{n}\times\bs{H^+}] + [Y^-\bs{E^-} - \bs{n}\times\bs{H^-}]}{Y^- + Y^+} \\
+	\bs{n}\times\bs{H^*} &= \bs{n}\times\frac{[Z^+\bs{H^+} - \bs{n}\times\bs{E^+}] + [Z^-\bs{H^-} + \bs{n}\times\bs{E^-}]}{Z^- + Z^+}
+\end{align*}
+
+\subsection{Rekonstruktion-Evolution Ansatz}
+Zur L\"osung der FV Vorschrift gibt es mehrere g\"angige Ans\"atze. Der folgende befasst sich mit dem Rekonstruktion-Evolution Ansatz. Dieser besteht im wesentlichen aus 3 Schritten:
+\par
+\begin{itemize}
+	\item[1] Gitterdaten/ Volumenmittelwerte verwenden um eine st\"uckweise konstante Funktion zu rekonstruieren.
+	\item[2] Evolution aus der L\"osung des Riemann Problems (exakt)
+	\item[3] Neue Volumenmittelwerte bestimmen.
+\end{itemize}
+Die Fehler der L\"osung entstehen dabei nur bei der Bildung der Mittelwerte. Dadurch wird die L\"osung bei gr\"oberem Gitter ``in die Breite'' gezogen.
+\par
+Die st\"uckweise konstanten Funktionen k\"onnen dabei beliebig gew\"ahlt werden. Eine h\"ohere Funktionsordnung f\"uhrt aber auch zu einem aufwendigeren L\"osugssystem.
+
+\subsection{Gudonov Methode}
+Die einfachste Vorschrift stellt die Gudonov Methode dar. Dabei wird die L\"osung durch st\"uckweise konstante Funktionen approximiert. In jedem Volumen wird also ein konstanter Mittelwert gebildet. Daraus l\"asst sich anschlie\ss{}end die Update Vorschrift herleiten.
+
+\newpage
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{fvgodun}
+\end{figure}
+\begin{equation*}
+	\overline{u}^{n}_i = \frac{1}{\dex}\int_{x_{i-1/2}}^{x_{i+1/2}}dxu(x,t^n) = u(x_{i-1/2} < x < x_{i+1/2},t^n) + O(\dex)
+\end{equation*}
+F\"ur die Rankine-Hugeniot Beziehung ergibt sich folglich:
+\par
+\begin{equation*}
+u(x_{i+1/2},t>t^n) = \begin{array}{l l } \overline{u}^n_i,~~~c>0 \\ \overline{u}^n_{i+1},~~~c<0 \end{array}~~~~\Rightarrow~~~~F^n_{i+1/2} = \begin{array}{l l } c\overline{u}_i^n,~~~c>0 \\ c\overline{u}^n_{i+1},~~~c<0 \end{array}
+\end{equation*}
+Daraus folgt die Update Gleichung:
+\par
+\begin{equation*}
+	u^{n+1}_i = u^n_i - \frac{c\delt}{\dex}(u^n_{i} - u^n_{i-1})
+\end{equation*}
+Diese ist offenbar identisch mit den Finiten Differenzen f\"ur das Euler-Explizit-R\"uckw\"arts Verfahren. Ein Vorteil besteht darin, dass durch die Herleitung \"uber die Riemann Bedingung automatisch ein Upwind gegeben ist, dadurch k\"onnen hierbei keine unphysikalischen L\"osungen auftreten.
+
+\subsection{Shift and Average Ansatz}
+Der Shift and Average Ansatz ist eine Alternative Beschreibung f\"ur Finite Volumen gegen\"uber dem Rekonstruktion und Evolution Ansatz. Dieser besteht im wesentlichen aus 5 Schritten:
+\begin{itemize}
+	\item[1] Bestimmung der Masse an $t^n$: $\dex\overline{u}_i^n$
+	\item[2] Massenfluss nach rechts: $c\delt\overline{u}_i^n$
+	\item[3] Massenfluss nach links: $c\delt\overline{u}_{i-1}^n$
+	\item[4] Bestimmung der Masse an $t^{n+1}$: $\dex\overline{u}_i^n-c\delt\overline{u}_i^n+\delt\overline{u}_{i-1}^n$
+	\item[5] Bestimmung des Volumenmittelwerts bei $t^{n+1}$: $u^{n+1}_i = u^n_i - \frac{c\delt}{\dex}(u^n_{i} - u^n_{i-1})$
+\end{itemize}
+Das Ergebnis ist hierbei identisch.
+
+\subsection{Numerische Fehler}
+Geometrisch gesehen lassen sich die numerischen Fehler folgenderma\ss{}en erkl\"aren:
+\begin{itemize}
+	\item Anf\"anglicher Approximationsfehler: echte Funktion $\Leftrightarrow$ rekonstruierte Funktion
+	\item Exakte Evolution der Funktion (unstetige Funktion innerhalb der Zelle)
+	\item Rekonstruktion im n\"achsten Zeitschritt: Masse erhalten, aber Fehler bei der Approximation $\rightarrow$ setzt sich in jedem Schritt fort.
+\end{itemize}
+
+
+\subsection{Van-Leer Methode}
+Die Van-Leer Methode verwendet anstatt der st\"uckweise konstanten Funktionen nun st\"uckweise lineare Funktionen. Dadurch l\"asst sich die Approximationsordnung des Verfahrens erh\"ohen. Es folgt als Ansatz ein Schritt mit einem konstanten und einem linearen Anteil:
+\par
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{fvvanl}
+\end{figure}
+\begin{equation*}
+	u_i(x,t^n) = \overline{u}_i^n + s_i^n(x-x_i) + O(\dex^2)~~~~\textrm{(mit s als Steigung}
+\end{equation*} 
+Mithilfe des Shift and Average Ansatz ergibt sich die Update Vorschrift in Abh\"angigkeit von der Ausbreitungsrichtung:
+\par
+F\"ur c>0:\\
+\begin{equation*}
+	\overline{u}^{n+1}_i = \overline{u}_i^n - \frac{c\delt}{\dex}\bigg[\overline{u}_i^n + \frac{s_i^n}{3}(\dex-c\delt)\bigg] + \frac{c\delt}{\dex}\bigg[\overline{u}_{i-1}^n + \frac{s_{i-1}^n}{3}(\dex-c\delt)\bigg]
+\end{equation*}
+F\"ur c<0:\\
+\begin{equation*}
+	\overline{u}^{n+1}_i = \overline{u}_i^n - \frac{c\delt}{\dex}\bigg[\overline{u}_{i+1}^n + \frac{s_{i+1}^n}{3}(\dex-c\delt)\bigg] + \frac{c\delt}{\dex}\bigg[\overline{u}_{i}^n + \frac{s_{i}^n}{3}(\dex-c\delt)\bigg]
+\end{equation*}
+Die angegebenen Steigungen s m\"ussen anschlie\ss{}end noch approximiert werden. Das l\"asst sich mit den bereits aus den Finiten Differenzen belannten Vorschriften machen: (Gudonov (siehe oben) oder Beam-Warming/Lax-Wendroff/Fromm(siehe Finite Differenzen)).
+
+\subsection{Slope Limiters}
+Durch die Berechnung mit der Van Leer Methode kann zwar eine h\"ohere Approximationsordnung erreicht werden, allerdings besteht die Gefahr, dass durch die Slopes ein \"Uberschwingen entsteht. Das ist in vielen F\"allen allerdings sehr unerw\"unscht, beispielsweise, wenn das Maximum der Feldst\"arke in einem Bereich zu bestimmen ist.
+\par
+Die einfachste Methode dazu ist bei der Bestimmung der Slopes jeweils eine Absch\"atzung der Steilheit nach unten zu machen. Das geht beispielweise, wenn von der Slope dadurch angepasst wird, dass die beiden angrenzenden Slopes links und rechts betrachtet werden und f\"ur die Steilheit das Minimum der drei gew\"ahlt wird. 
+\par
+\begin{equation*}
+	s_i^n = minmod(s^n_{iL},s^n_{iR}) = minmod \bigg(\frac{\overline{u}^n_i - \overline{u}^n_{i-1}}{\dex},\frac{\overline{u}^n_{i+1} - \overline{u}^n_{i}}{\dex}\bigg)
+\end{equation*}
+Dadurch kann die L\"osung zwar an steilen Kanten in die Breite gezogen werden, allerdings wird ein \"Uberschwingen so unterbunden.
+
+\subsection{Randbedingungen bei Finiten Volumen}
+\textbf{Offene Randbedingungen} k\"onnen bei den Finiten Volumen einfach \"uber die Riemann L\"osung abgelesen werden. Diese enth\"alt n\"amlich von sich aus bereits ein Wavesplitting. Soll nun an einem \"Ubergang eine Randbedingung eingef\"uhrt werden, so wird die aus diesem Rand ``kommende'' Welle einfach zu null gesetzt.
+\par
+\textbf{Perfekt Leitende (PEC)} Randbedigungen werden eingef\"uhrt, indem die Normalkomponente des E-Feldes zu Null gesetzt wird. Nun kann \"ahnlich wie bei der Spieglungsmethode angenommen werden, dass das E-Feld in der leitenden Ebene gleich dem innerhalb des Gebiets ist. Es gilt:
+\par
+\begin{equation*}
+	(\bs{n}_x \times \bs{E}^*)^n_{i+1/2} = 0,~~~\Rightarrow \begin{array}{ll} \bs{E}^+ = -\bs{E}^- \\ \bs{n}_x \times \bs{H}^+ = \bs{n}_x \times \bs{H}^-  \end{array}
+\end{equation*}
+\begin{equation*}
+	\Rightarrow (\bs{n}_x \times \bs{H}^*)^n_{i+1/2} = \bs{n}_x \times \frac{[Z^-\bs{H}^- + \bs{n}_x\times\bs{E}^-]}{Z^-}
+\end{equation*}
+
