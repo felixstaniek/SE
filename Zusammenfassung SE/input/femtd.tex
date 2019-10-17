@@ -1,0 +1,67 @@
+\section{Finite Elemente Methoden im Zeitbereich}
+FEM funktioniert bis zur Semidiskreten L\"osung wie sonst auch, daher hier kurz gefasst.
+\par
+Die L\"osung wird zun\"achst mit st\"uckweise linearen Fuktionen abgetastet (H\"utchenfkt oder so). Diese haben folgende Eigenschaften:
+\par
+\begin{itemize}
+	\item Linear Unabh\"angig (nur abh\"angig vom Funktionswert am Punkt selbst)
+	\item Kontinuierlich (Da die L\"osung auch Kontinuierlich sein soll)
+	\item Kompakter Tr\"ager (d\"unn besetzte Matrix, leichte Implementierung von Randwerten)
+\end{itemize}
+Schwache Fomulierung. Je nach Problem erh\"alt man eie Massematrix $M$ (Matrix mit den Basen selbst) und eine Steifigkeitsmatrix $P_x$ (Matrix mit den Ableitungen der Basen).
+\par
+F\"ur die Galerkin Approximation (Basen und Testfunktionen sind identisch) gelten bestimmte Eigenschaften f\"ur die Massematrix (auch f\"ur die Steifigkeitsmatrix):
+\par
+\begin{itemize}
+	\item M ist Symmetrisch (bei P antisymmetrisch)
+	\item M ist nicht singul\"ar (invertierbar) 
+	\item M ist positiv definit
+\end{itemize}
+Bei h\"oheren Ordnungen von Basisfunktionen sind die Matrizen st\"arker besetzte. Allerdings nur um einen konstanten Faktor st\"arker.
+
+\subsection{Semidiskrete L\"osung}
+Die semidiskrete L\"osung ist schnell \"uber die Schwache Formulierung zu finden. Am Beispiel der skalaren Wellengleichung ergibt sich f\"ur diese:
+\par
+\begin{equation*}
+	\bs{M}\cdot\frac{d\bs{u}}{dt} + c\bs{P}_x\cdot\bs{u}=0,~~~~\bs{u} = (u_1,u_2,\cdots,u_N)^T
+\end{equation*}
+Diese l\"asst sich \"uber einen ODE Solver l\"osen. Beispielsweise:
+\par
+\begin{align*}
+	\textrm{Euler-expl.-vorw\"arts: }\bs{u}^{n+1} &= \bs{M}^{-1}(\bs{M\cdot u}^n - c\delt\bs{P_x\cdot u}^n)\\
+	\textrm{zentrale Differenzen: }\bs{u}^{n+1} &= \bs{M}^{-1}(\bs{M\cdot u}^{n-1} - 2c\delt\bs{P_x\cdot u}^n)
+\end{align*}
+Offensichtlich muss hierbei in jedem Zeitschritt ein Gleichungssystem mit der inversen von M gel\"ost werden. Die inverse einer d\"unn besetzten Matrix ist allerdings voll besetzt. Somit ist der Rechenaufwand sehr hoch.
+
+\newpage
+
+\subsection{FEM in 3D}
+In mehreren Dimensionen m\"ussen f\"ur die FEM andere Basisfunktionen verwendet werden. Um die Kontinuit\"aten der Feldgr\"o\ss{}en einzuteilen ist die Einf\"uhrung vektorieller Basisfunktionen hilfreich. Diese k\"onnen bestimmte Stetigkeiten f\"ur jede Richtung vorgeben.
+\par
+\begin{figure}[ht]
+	\centering
+	\subfloat{\includegraphics[width=0.35\textwidth]{basetan}}
+	\hspace{0.1\textwidth}
+	\subfloat{\includegraphics[width=0.35\textwidth]{basenorm}}
+\end{figure}
+Mit diesen Basen k\"onnen also auch in h\"oheren Dimensionen sehr einfach Steigkeiten eingef\"uhrt werden.
+\par
+Damit nicht f\"ur jede Gleichung eine komplette Herleitung n\"otig ist, kann man sich die \textbf{mimetischen} Eigenschaften der Galerkin Methoden zunutze machen. Das bedeutet, dass das diskrete LGS von der Struktur der urspr\"unglichen DGL ``nachahmt''. Dadurch lassen sich einmalig Operatoren definieren, welche dann einfach in die Gleichung eingesetzt werden.
+\par
+\textbf{Beispiel:}
+\par
+\begin{align*}
+	\mu^{-1}\frac{\partial\bs{B}}{\pet} + \mu^{-1}\nabla\times\bs{E} &= 0 \\
+	\Rightarrow \sum_{j=1}^{N_B}\frac{dB_j}{dt}\int d^3r\mu^{-1}\bs{\Phi}_i^B\cdot\bs{\Phi}^B_j + \sum_{j=1}^{N_E}E_j\int d^3r\mu^{-1}\bs{\Phi}^B_i\cdot\nabla\times\bs{\Phi}_j^E &= 0
+\end{align*}
+Daraus k\"onnen die Definitionen f\"ur die Operatoren f\"ur rot(E) und Masse(B) direkt abgelesen werden, diese lassen sich f\"ur weitere Probleme verwenden.
+\subsection{Zusammenfassung}
+Generell gilt immer f\"ur konforme FEM:
+\begin{itemize}
+	\item Energierhaltung folgt aus Galerkin, da Basis und Testfunktionen identisch sind
+	\item Konforme FEM sind immer Ladungserhaltend, da Stetigkeiten eingehalten werden (dadurch keine unphysikalische L\"osung)
+\end{itemize}
+
+
+
+

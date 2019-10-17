@@ -1,0 +1,303 @@
+\section{Finite Differenzen f\"ur Maxwell-Gleichungen}
+Als Beispiel f\"ur ein einfaches Update Schema f\"ur Maxwell Gleichungen wird zun\"achst eine Z-polarisierte Welle betrachtet. Aus der ersten und dritten Maxwell Gleichung folgen daraus:
+\par
+\begin{align*}
+	\frac{\partial \epsilon E_z}{\pet} &= \frac{\partial H_y}{\pex} \\
+	\frac{\partial \mu H_y}{\pet} &= \frac{\partial E_z}{\pex}
+\end{align*}
+Oder mit Zentralen Differenzen als Differenzengleichungen ausgedr\"uckt:
+\par
+\begin{align*}
+	\frac{E^{n+1}_{z,i} - E^{n-1}_{z,i}}{2\delt} &= \frac{1}{\epsilon}\frac{H^n_{y,i+1} - H^n_{y,i-1}}{2\dex} + O(\delt^2) + O(\dex^2) \\
+	\frac{H^{n+1}_{y,i} - H^{n-1}_{y,i}}{2\delt} &= \frac{1}{\mu}\frac{E^n_{z,i+1} - E^n_{z,i-1}}{2\dex} + O(\delt^2) + O(\dex^2)
+\end{align*}
+In dieses System werden anschlie\ss{}end die Zeit und Ort Operatoren eingesetzt und die Matrix Form erstellt:
+\par
+\begin{equation*}
+	\begin{pmatrix} 
+		\bs{L-L^{-1}} & \bs{0^N} \\
+		\bs{0^N} & \bs{L-L^{-1}}
+	\end{pmatrix}
+	\cdot
+	\begin{pmatrix}
+		\bs{E_z} \\
+		\bs{H_y}
+	\end{pmatrix}^n
+	=
+	\begin{pmatrix}
+		\bs{ 0^N } & \frac{\sigma}{c\epsilon}(\bs{S^1-S^{-1}}) \\
+		\frac{\sigma}{c\mu}(\bs{S^1-S^{-1}}) & \bs{ 0^N }
+	\end{pmatrix}
+	\cdot
+	\begin{pmatrix}
+		\bs{E_Z} \\
+		\bs{H_y}
+	\end{pmatrix}^n
+\end{equation*}
+Zur Bestimmung der Wellengleichung wird daraufhin eine Fourier-Transformation durchgef\"uhrt. Diese leifert:
+\par
+\begin{equation*}
+	\bs{E_z}(t) = \sum_{-N/2+1}^{N/2} e_k(t)\Phi_k,~~~~~~ \bs{H_y}(t) = \sum_{-N/2+1}^{N/2} h_k(t)\Phi_k
+\end{equation*}
+Es folgt das Transformierte Gleichungssystem:
+\par
+\begin{equation*}
+	\begin{pmatrix} 
+		\lambda - 1/\lambda & 0\\
+		0 & \lambda - 1/\lambda
+	\end{pmatrix}
+	\cdot
+	\begin{pmatrix}
+		e_k \\
+		h_k
+	\end{pmatrix}^n
+	=
+	\begin{pmatrix}
+		0 & \frac{\sigma}{c\epsilon}(e^{i\beta}-e^{-i\beta}) \\
+		\frac{\sigma}{c\mu}(e^{i\beta}-e^{-i\beta}) & 0
+	\end{pmatrix}
+	\cdot
+	\begin{pmatrix}
+		e_k \\
+		h_k
+	\end{pmatrix}^n
+\end{equation*}
+Nun k\"onnen alle Terme auf eine Seite geszogen werden und man erh\"alt ein leicht l\"osbares Gleichungssystem:
+\par
+\begin{equation*}
+	0
+	=
+	\begin{pmatrix} 
+		\lambda - 1/\lambda & -\frac{2i\sigma}{c\epsilon}sin\beta\\
+		-\frac{2i\sigma}{c\mu}sin\beta & \lambda - 1/\lambda
+	\end{pmatrix}
+	\cdot
+	\begin{pmatrix}
+		e_k \\
+		h_k
+	\end{pmatrix}^n
+\end{equation*}
+\par
+\vspace{-1.6em}
+\begin{tikzpicture}
+	\centering
+	\node[anchor=south west,inner sep=0] (Bild) at (0,0){};
+	\begin{scope}[x=(Bild.south east),y=(Bild.north west)]
+		\draw [ultra thick] [->] (230,0) -- (180,10) node [pos=0,below] {Matrix $A$};
+	\end{scope}
+\end{tikzpicture}
+\par
+Als L\"osungen ergeben sich entweder, dass der Vektor mit E und H-Feld 0 ergeben muss, oder dass die Determinante der Matrix A 0 ergibt. Da ersteres nach der Annahme einer Elektromagnetischen Welle nicht m\"oglich ist, wird eine L\"osung f\"ur den zweiten Fall gesucht.
+\par
+Es folgt aus der Determinantengleichung und nach Anwendugn der p-q-Formel:
+\begin{align*}
+	\lambda^{1,2} &= +\bs{i}\sigma sin\beta \pm \sqrt{1-\sigma^2sin^2\beta} \\
+	\lambda^{3,4} &= -\bs{i}\sigma sin\beta \pm \sqrt{1-\sigma^2sin^2\beta}
+\end{align*}
+Also folglich 4 L\"osungen f\"ur das Gleichungssystem. Da allerdings physikalisch gesehen nur 2 L\"osungen f\"ur die eindimensionale Wellenausbreitung (n\"amlich vorw\"arts und r\"uckw\"arts) m\"oglich sind, m\"ussen weitere \"Uberlegungen angestellt werden.
+
+\subsection{Parasit\"are L\"osungen}
+Bei den physikalisch unm\"oglichen ``unphysikalischen'' L\"osungen sprich man auch von parasit\"aren L\"osungen. Diese sind L\"osungen des Systems, welche Mathematisch korrekt sind, aber dabei nicht physikalisch sind. So ergeben sich bei genanntem Beispiel f\"ur eine fortlaufende Welle beide Ausbreitungsrichtugen, in der Realit\"at nur eine.
+\par
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\textwidth]{ghostmodes}
+\end{figure}
+Da diese L\"osungen nicht einfach von den Korrekten zu unterscheiden sind, sind Verfahren zu \"uberlegen, welche diese L\"osungen verhindern.
+\par
+Es gibt mehrere g\"angige Verfahren:
+\begin{itemize}
+	\item Numerisches Verfahren verwenden, in dem keine parasit\"aren L\"osungen existieren (siehe Yee-FDTD)
+	\item Durch Anfangsbedingungen die Anregung der parasit\"aren Moden verhindern (nicht immer m\"oglich)
+	\item Sicherstellen, dass die parasit\"aren L\"osungen klein gehalten werden (Penalisierung).
+\end{itemize}
+
+\subsection{Yee-FDTD}
+Die Grundidee der Yee-FDTD ist die Verwendung eines versetzten Gitters f\"ur H- und E-Feld. Diese werden anschlie\ss{}end an versetzten Zeitpunkten ausgewertet.
+\par
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\textwidth]{yeefdtd}
+\end{figure}
+F\"ur das Update Schema ergibt sich eine Gleichung, die gro\ss{}e \"Ahnlichkeit mit den zentralen Differenzen aufweist:
+\par
+\begin{align*}
+	\frac{E^{n+1}_{z,i} - E^{n-1}_{z,i}}{\delt} &= \frac{1}{\epsilon}\frac{H^{n+1/2}_{y,i+1/2} - H^{n+1/2}_{y,i-1/2}}{\dex} + O(\delt^2) + O(\dex^2) \\
+	\frac{H^{n+1/2}_{y,i+1/2} - H^{n-1/2}_{z,i+1/2}}{\delt} &= \frac{1}{\mu}\frac{E^n_{z,i+1} - E^n_{z,i-1}}{\dex} + O(\delt^2) + O(\dex^2)
+\end{align*}
+Es f\"allt dabei auf, dass hier kein Faktor $2$ im Nenner mehr auftaucht. Zur Bestimmung der Fourier-Transformation werden die Feldkomponenten Versetzt ausgewertet. Dazu werden der Zeitentwicklungs- und der Verschiebungsoperator verwendet, um die Feldkomponenten wechselseitig auszuwerten. So k\"onnen die E-Feldkomponenten auf den Punkten des H-Feldes ausgewertet werden und umgekehrt.
+
+\newpage
+
+\begin{figure}[ht]
+	\centering
+	\subfloat{\includegraphics[width=0.5\textwidth]{aux}}
+	\subfloat{\includegraphics[width=0.5\textwidth]{aux2}}
+\end{figure}
+Nun wird er Operator eingesetzt und die Matrix-Form des Gleichungssystems aufgestellt:
+\par
+\begin{equation*}
+	\begin{pmatrix} 
+		\bs{L^{1/2}-L^{-1/2}} & \bs{0^N} \\
+		\bs{0^N} & \bs{L^{1/2}-L^{-1/2}}
+	\end{pmatrix}
+	\cdot
+	\begin{pmatrix}
+		\bs{E_z} \\
+		\bs{H_y}
+	\end{pmatrix}^n
+	=
+	\begin{pmatrix}
+		\bs{ 0^N } & \frac{\sigma}{c\epsilon}(\bs{S^{1/2}-S^{-1/2}}) \\
+		\frac{\sigma}{c\mu}(\bs{S^{1/2}-S^{-1/2}}) & \bs{ 0^N }
+	\end{pmatrix}
+	\cdot
+	\begin{pmatrix}
+		\bs{E_Z} \\
+		\bs{H_y}
+	\end{pmatrix}^n
+\end{equation*}
+In der Fourier-transformierten, und wird $e^{i\frac{\beta}{2}}-e^{-i\frac{\beta}{2}}$ wieder durch $2isin\frac{\beta}{2}$ ersetzt, so folgt:
+\par
+\begin{equation*}
+	0
+	=
+	\begin{pmatrix} 
+		\sqrt{\lambda} - 1/\sqrt{\lambda} & -\frac{2i\sigma}{c\epsilon}sin\frac{\beta}{2}\\
+		-\frac{2i\sigma}{c\mu}sin\frac{\beta}{2} & \sqrt{\lambda} - 1/\sqrt{\lambda}
+	\end{pmatrix}
+	\cdot
+	\begin{pmatrix}
+		e_k \\
+		h_k
+	\end{pmatrix}^n
+\end{equation*}
+Wird nun wieder das gleiche Verfahren zur L\"osung angesetzt wird schnell deutlich, dass nur noch zwei L\"osungen existieren. Dieses sind beide physikalischen L\"osungen:
+\par
+\begin{align*}
+	det A &= 0 ~~~\Rightarrow~~~ \bigg(\sqrt{\lambda} - \frac{1}{\sqrt{\lambda}}\bigg)^2 + 4\sigma^2\sin^2\frac{\beta}{2} = 0 \\
+	\Rightarrow \lambda^{1,2} &= \bigg(i\sigma sin\frac{\beta}{2} \pm \sqrt{1-\sigma^2sin^2\frac{\beta}{2}}\bigg)
+\end{align*}
+Zu beachten ist, dass bei der YEE-FDTD dispersion auftritt. Diese l\"asst sich aus der Dispersionsbeziehung bestimmen.
+\begin{equation*}
+	\frac{sin^2\omega\delt/2}{(c\delt/2)^2} = \frac{sin^2\kappa\dex/2}{(\dex/2)^2}
+\end{equation*}
+Aus der Wellenzahl l\"asst sich dadurch die Ausbreitungsgeschwindigkeit bestimmen. Das Ergebnis zeigt eine Verz\"ogerung der Phase, da die numerische Ausbreitungsgeschwindigkeit etwas geringer ist, als die tats\"achliche, welche der Lichtgeschwindigkeit entspricht.
+
+\newpage
+
+\subsection{Wave-Splitting}
+Um f\"ur Maxwell-Gleichungen Upwind anwenden zu k\"onnen ist zuvor die genaue Ausbreitungsrichtug zu definieren. Die Ausbreitungsrichtung der Welle ist dabei durch den Versatz von E- zu H-Feld gegeben. Es gibt zwei verschiedene Polarisationen f\"ur die positive Ausbreitungsrichtung.
+\par
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.45\textwidth]{polarisation}
+\end{figure}
+Analog f\"ur die negative Ausbreitungsrichtung gilt, dass die H-Komponente immer in die entgegengesetzte Richtung zeigen muss. Aus den beiden Polarisationen folgt aus der skalaren Wellengleichung f\"ur die Ausbreitungsrichtugen:
+\par
+\begin{align*}
+	\frac{\partial}{\pet}(E_z - ZH_y) + c\frac{\partial}{\pex}(E_z - ZH_y) &= 0~~~~~\Rightarrow~~~~~\textrm{``positive'' Welle} \\
+	\frac{\partial}{\pet}(H_y + YE_z) + c\frac{\partial}{\pex}(H_y + YE_z) &= 0~~~~~\Rightarrow~~~~~\textrm{``negative'' Welle} 
+\end{align*}
+Mit den beiden Charakteristischen Variablen:
+\par
+\begin{align*}
+	\xi &= (E_z - ZH_y)/2 \\
+	\eta &= (H_y + YE_z)/2
+\end{align*}
+Somit lassen sich zwei getrennte upwind Schrittverfahren in jede Ausbreitungsrichtung aufstellen:
+\par
+\begin{align*}
+	\xi^{n+1}_i &= \xi^{n} - \frac{c\delt}{\dex}(\xi^n_i - \xi^n_{i-1}) + O(\delt) + O(\dex) \\
+	\eta^{n+1}_i &= \eta^n_i + \frac{c\delt}{\dex}(\eta^n_{i+1} - \eta^n_i) + O(\delt) + O(\dex)
+\end{align*}
+Werden die Variablen wieder durch Feldvariablen ersetzt:
+\par
+\begin{align*}
+	E^{n+1}_z &= (\xi^{n+1} + Z\eta^{n+1}) \\
+	H^{n+1}_y &= (\eta^{n+1} - Y\xi^{n+1})
+\end{align*}
+so kann ein Gleichungssystem mit zwei Gleichungen aufgestellt werden. In Matrix Form ist das komplette Schema:
+\par
+\begin{equation*}
+	\begin{pmatrix} 
+		E_z \\
+		H_y
+	\end{pmatrix}^{n+1}_i
+	=
+	(1-\sigma)
+	\begin{pmatrix}
+		E_z \\
+		H_y
+	\end{pmatrix}^n_i
+	+
+	\sigma/2
+	\begin{pmatrix}
+		1 & -Y \\
+		-Z & 1
+	\end{pmatrix}
+	\begin{pmatrix}
+		E_z \\
+		H_y
+	\end{pmatrix}^n_{i-1}
+	+
+	\sigma/2
+	\begin{pmatrix}
+		1 & Y \\
+		Z & 1
+	\end{pmatrix}
+	\begin{pmatrix}
+		E_Z \\
+		H_y
+	\end{pmatrix}^n_{i+1}
+\end{equation*}
+Anschlie\ss{}end werden wieder die Operatoren eingesetzt.
+\par
+\begin{equation*}
+	\bigg[
+	\begin{pmatrix}
+		L - (1-\sigma)1^N & 0 \\
+		0 & L - (1-\sigma)1^N
+	\end{pmatrix}
+	-
+	\sigma/2
+	\begin{pmatrix}
+		S^{-1} & -YS^{-1} \\
+		-ZS^{-1} & S^{-1}
+	\end{pmatrix}^n_{i-1}
+	-
+	\sigma/2
+	\begin{pmatrix}
+		S^{1} & YS^{1} \\
+		ZS^{1} & S^{1}
+	\end{pmatrix}
+	\bigg]
+	\cdot
+	\begin{pmatrix}
+		E_Z \\
+		H_y
+	\end{pmatrix}^n
+	=
+	0
+\end{equation*}
+Und als letztes eine Fourier-Transformation durchgef\"uhrt um wieder die L\"osungen zu bestimmen:
+\begin{equation*}
+	\begin{pmatrix}
+		\lambda - 1 + \sigma(1-cos\beta) & -i(Y\sigma)sin\beta \\
+		-i(Z\sigma)sin\beta & \lambda -1 - \sigma(1-cos\beta)
+	\end{pmatrix}
+	\cdot
+	\begin{pmatrix}
+		e_k\\
+		h_k
+	\end{pmatrix}^n
+	=
+	0
+\end{equation*}
+Als L\"osung ergibt sich aus diesem Verfahren genau eine positive und eine negative Welle, also ebenso wie beim YEE-FDTD keine unphysikalische L\"osung.
+\par
+\begin{equation*}
+	\lambda^\pm = 1-\sigma(1-e^{\pm i\beta})
+\end{equation*}
+Ebenso wie bei der YEE-FDTD treten auch beim Wave splitting Phasenfehler auf. Hier ist die numerische L\"osung schneller als die tats\"achliche, also schreitet die Phase schneller voran.
+

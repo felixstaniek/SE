@@ -1,0 +1,111 @@
+\section{Finite Volumen Verfahren in 3D}
+In 3 Dimensionen werden die Finiten Volumen nicht mehr als intervall definiert, sondern als kleiner Raumabschnitt. In der Regel werden daf\"ur W\"urfelstrukturen verwendet. Die Oberfl\"achen des W\"urfels k\"onnen dann durch die Raumrichtungen charakterisiert werden.
+\par
+\begin{figure}[ht]
+	\centering
+	\subfloat{\includegraphics[height=0.33\textwidth]{fv3dskizze}}
+	\subfloat{\includegraphics[height=0.33\textwidth]{fv3dcube}}
+\end{figure}
+Aus dieser \"Uberlegung kann wieder die gesamte Formulierung bestimmt werden. Es folgt sehr \"ahnlich wie in einer Dimension:
+\par
+\textbf{Volumenmittelwert:}
+\begin{equation*}
+	\overline{u}_{ijk}(t) = \frac{1}{\Delta V_{ijk}} \int_{x_{i-1/2}}^{x_{i+1/2}} dx \int_{y_{i-1/2}}^{y_{i+1/2}} dy \int_{z_{i-1/2}}^{z_{i+1/2}} dz u(x,y,z,t)
+\end{equation*}
+\textbf{Fl\"usse sind nun \"uber die einzelne Oberfl\"ache definiert, z.B. $\bs{x = x_{i+1/2}}$:}
+\begin{equation*}
+	F^x_{i+1/2,j,k} = \frac{1}{\delt} \int_{t^{n}}^{t^{n+1}} dt \int_{y_{i-1/2}}^{y_{i+1/2}} dy \int_{z_{i-1/2}}^{z_{i+1/2}} dz f^x[u(x_{i+1/2},y,z,t)]
+\end{equation*}
+\textbf{Update Schema:}
+\begin{equation*}
+	\overline{u}^{n+1}_{ijk} = \overline{u}^{n}_{ijk} + \frac{\delt}{\Delta V_{ijk}}[F^x_{i-1/2,j,k} - F^x_{i+1/2,j,k}] + \frac{\delt}{\Delta V_{ijk}}[F^y_{i,j-1/2,k} - F^y_{i,j+1/2,k}] \cdots
+\end{equation*}
+
+
+\subsection{Evolution in 3D}
+Da es in mehreren Dimensionen mehrere Richtungen gibt, in die Fl\"usse \"uber den Rand treten k\"onnen, muss eine andere Evolutionsmethode \"uberlegt werden. Als Ansatz wird daher nur der Fluss \"uber den Mittelpunkt der Oberfl\"achen des W\"urfels verwendet:
+\par
+\begin{equation*}
+	F^x_{i+1/2,j,k} \approx \frac{\dex\Delta y}{\delt} \int_{t^n}^{t^{n+1}} dt f^x[u(x_{i+1/2},y_j,z_k,t)]
+\end{equation*}
+Diese l\"asst sich wie eine 1D Finite Volumen Evolution behandeln. Das Problem ist allerdings, dass hierdurch gro\ss{}e Fehler einstehen k\"onnen.
+\par
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.27\textwidth]{1dflux}
+\end{figure}
+Denn das die Fl\"usse nicht zwangsweise nur waagerecht oder senkrecht propagieren, \"andert sich der Fluss w\"ahrend des Schritts. Das wird allerdings bei der Evolution nicht ber\"ucksichtigt. Es existieren allerdings mehrere Methoden, mit denen dies korrigiert werden kann:
+\begin{itemize}
+	\item[1] Ecken-Korrektur(Corner correction) Methode
+	\begin{itemize}
+		\item Exakte Fl\"usse bestimmen (auch die Transversalbewegung) 
+		\item \"Ubliche Finite Volumen weiterf\"uhren
+	\end{itemize}
+	\item[2] Methode der Linien 
+	\begin{itemize}
+		\item 1D Fl\"usse an den Fl\"achenmittelpunkten
+		\item Semidiskrete FV mit ODE L\"oser in der Zeit l\"osen
+	\end{itemize}
+	\item[3] Dimensionale Operatortrennung
+	\begin{itemize}
+		\item 1D Fl\"usse an Fl\"achenmittelpunkten
+		\item 1D Updates f\"ur jede Dimension einzeln anwenden
+	\end{itemize}
+\end{itemize}
+Diese werden im folgenden genauer behandelt.
+
+\subsubsection{Ecken-Korrektur(Corner correction) Methode}
+F\"ur die Eckenkorrektur schaut man das Kartesische Gitter in 2 Dimensionen als Beispiel an.
+\par
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{massflow}
+\end{figure}
+Bei diagonaler Flussrichtung wird ersichtlich, dass die Fl\"usse in jedem Zeitschritt einen Fehler aufweisen, da diese den falschen Volumen zugeordnet werden. Dies l\"asst sich aber durch Bestimmung der Fl\"achen korrigieren:
+\par
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{cornercorr}
+\end{figure}
+Die entsprechenden Korrekturterme k\"onnen einfach in die Updategleichung erg\"anzt werden. Somit sind die falschen Fl\"usse korrigiert und die L\"osung wird wieder exakt masseerhaltend und stabil.
+\par
+\begin{align*}
+	F^x_{i+1/2,j} &= c_x \overline{u}_{i,j} \Delta y - \frac{\delt}{2}c_xc_y(\overline{u}_{i,j} - \overline{u}_{i-1,j}) \\
+	F^y_{i,j+1/2} &= c_y\overline{u}_{i,j}\dex - \frac{\delt}{2}c_xc_y(\overline{u}_{i,j} - \overline{u}_{i-1,j})
+\end{align*}
+
+\subsubsection{Methode der Linien}
+Als Ansatz f\"ur die Methode der Linien wird die Semidiskrete FV Routine aufgestellt:
+\par
+\begin{equation*}
+	\frac{d\overline{u}_{ijk}}{dt} + \frac{1}{\Delta V_{ijk}}[\overline{f}^x_{i+1/2,j,k} - \overline{f}^x_{i-1/2,j,k}]~~~\textrm{mit:}~~~ \overline{f}^x_{i+1/2,j,k} = \int_{y_{j-1/2}}^{y_{j+1/2}}dy \int_{z_{k-1/2}}^{z_{k+1/2}}dz f^x[u(x_{i+1/2},y,z,t)]
+\end{equation*}
+\"Uber einen ODE L\"oser kann diese Gleichung jetzt einfach bis zur zweiten Ordnung gel\"ost werden, um Schritte f\"ur die Gesamtl\"osung zu bestimmen. Es folgt:
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{faul}
+\end{figure}
+\par
+Die Methode ist als einfach zu implementieren, allerdings gilt hier \textbf{keine} exakte Massenerhaltung.
+
+\subsection{Dimensionale Operatortrennung}
+Die letzte Methode zur Fehlerkorrektur ist die dimensionale Operatortrennung. Hierbei wird wieder von der Semidiskreten Form der FV ausgegangen. Zur formalen L\"osung eines Zeitschritts wird ein Operator eingef\"uhrt:
+\par
+\begin{equation*}
+	\overline{\bs{u}}(t+\delt) = e^{\delt\bs{L}}\cdot \overline{\bs{u}}^n = \bs{\mathcal{L}}(\delt)\cdot\overline{\bs{u}}^n + O(\delt^{s+1})~~~\textrm{(mit }\bs{\mathcal{L}}(\delt)\textrm{ als diskreter Zeitoperator)}
+\end{equation*}
+Mit diesem Operator kann nun eine Trennung der Evolution in mehrere Raumrichtungen durchgef\"uhrt werden.
+\par
+\begin{equation*}
+	\overline{\bs{u}}^{n+1} = e^{\delt\bs{L_x + L_y}}\cdot \overline{\bs{u}}^n = \bs{\mathcal{L}}_x(\delt)\cdot\bs{\mathcal{L}}_y(\delt)\cdot\overline{\bs{u}}^n + O(\delt^{s+1})
+	\Rightarrow
+	\begin{array}{ll} \overline{\bs{u}}^{*} = \bs{\mathcal{L}}_x(\delt) \cdot \overline{\bs{u}}^n \textrm{ (Update in x)} \\ \overline{\bs{u}}^{n+1} = \bs{\mathcal{L}}_y(\delt)\cdot\overline{\bs{u}}^{*} \textrm{ (Update in y)}\end{array}
+\end{equation*}
+Dieser Split l\"asst sich auch auf mehrschrittig ausf\"uhren, also der Operator l\"asst sich dimensionsweise in Teilschritte unterteilen. Das Ergebnis wird geometrisch dargestellt:
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{strangsplit}
+\end{figure}
+
+
+
