@@ -17,7 +17,7 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.2.3}Qualitätsmerkmale}{2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.2.4}Nichtfunktionale Merkmale}{2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.2.5}Prinzipien der Qualitätssicherung}{3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.2.6}Konstruktives Qualitätssicherung zur Fehlervermeidung}{3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.2.6}Konstruktives Qualitätssicherung zur Fehlervermeidung:}{3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.2.7}Analytisches Qualitätsmanagement für Fehleridentifikation}{3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Iterative Softwareentwicklung}{4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.3.1}Übersicht der Phasen des Wasserfallmodells}{4}\protected@file@percent }
@@ -68,8 +68,265 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.2}Revision Control System RCS von Berkley/Purdue University}{19}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Offene Probleme}{19}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Deltaspeicherung von Revisionen als gerichtete Graphen\relax }}{19}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.3}Concurrent Version (Management) System CVS}{20}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Releasemanagement}{20}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Buildmanagement}{20}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Änderungsmanagement}{20}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Zusammenfassung}{20}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.3}Concurrent Version (Management) System CVS}{19}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Dreiwegeverschmelzen von (Text-)Dateien: \relax }}{20}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Optimistisches Sperrkonzept mit ''Merge''}{20}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Synchronisierung mit Watch/Edit/Unedit:}{21}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Identifikation gewünschter Revisionen - Zusammenfassung:}{21}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Offene Probleme mit Deltaspeicherung und Verschmelzen}{22}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Verbleibende Mängel von CVS}{22}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.4}CVS-Nachfolger Subversion (SVN}{22}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Einsatz von merge in SVN}{23}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Variante des merge-Kommandos}{23}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Delta-Speicherung in svn:}{23}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Vorwärts-Delta-Speicherung mit ''Skip-List''- Ansatz in SVN}{23}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.5}Geschichte verteilter Versionierungs-Systeme}{24}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Geschichte verteilter Versionierungs-Systeme\relax }}{24}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Anmerkung zu ''Urahn'' ClearCase:}{24}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.6}''Echt'' verteilte Versionierungs-Systeme:}{25}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Prinzipien ''echt'' verteilter Versionierungs-Systeme wie ''git'':}{25}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Bewertung:}{25}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.7}Verteilte ''Peer-to-Peer''-Versionierungs-Systeme:}{25}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Fazit:}{26}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Variantenmanagement (Software-Produktlinien}{26}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Software-Produktlinien-Entwicklung = ''Variantenmanagement im Großen''}{26}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Domänen- und Anwendungsentwicklung\relax }}{26}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Variabilitätsmodell (Feature-Modell) einer SPL:}{27}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Werkzeugunterstützung für SPL-Entwicklung:}{27}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Grafische Notation von FeatureIDE:}{27}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.1}Variantenmanagement für Quelltextdateien:}{27}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Grafische Notation von FeatureIDE\relax }}{28}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Releasemanagement}{28}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.1}Aufgaben des Releasemanagement}{28}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.2}Planungsprozess für neue Releases:}{29}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Standardlösung für parallele Pflege und Weiterentwicklung:}{29}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Strategien für die Vergabe von Versions- und Revisionsnummern:}{29}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Buildmanagement}{30}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.1}Werkzeuge für das Build-Management}{30}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.2}Das Programm ''make'' zur Automatisierung von Build-Vorgängen:}{31}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Erläuterungen der seltsamen Sonderzeichen-Makros:}{31}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Muster-Suche und Substitutionen in make:}{31}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Muster-Regeln in make:}{31}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Bewertung des Buildmanagements mit make:}{32}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Erzeugung von Makefiles:}{32}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Generierung von Makefiles mit GNU Autotools}{33}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.3}Zusammenfassung und Ratschläge:}{33}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Änderungsmanagement}{33}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.6.1}Änderungsmanagement frei nach [Li02]}{33}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.6.2}Änderungsmanagement frei nach [Wh00]}{34}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Funktionalität von Änderungsmanagement-Werkzeugen:}{34}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Werkzeuge für das Änderungsmanagement:}{35}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.7}Zusammenfassung}{35}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Meine Ratschläge für das KM-Management:}{35}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Statische Programmanalyse \& Metriken}{35}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Einleitung}{35}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Analytisches Qualitätsmanagement zur Fehleridentifikation:}{36}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Arten der Programmanalyse}{36}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Softwarearchitekturen und -visualisierung}{37}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Begriffe nach Sommerville:}{37}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Softwarearchitekturen sind mehr als Teilsysteme und Module:}{37}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Statische Visualisierung von Programmstruktur mit CrocoCosmos:}{38}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Grafische Darstellung eines Rahmenwerks für interaktive Anwendungen\relax }}{38}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Programmvisualisierung mit Doxygen und Graphviz:}{38}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Strukturierte Gruppenprüfungen (Reviews)}{38}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Ausschnitte der Programmlogik\relax }}{39}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Psychologische Probleme bei Reviews:}{39}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Vorgehensweise bei der Inspektion}{40}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Ablauf einer Inspektion:}{40}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Technisches Review (abgeschwächte Form der Inspektion):}{41}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Informelles Review (Walkthrough):}{41}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Kontroll- und Datenflussorientierte Analysen}{41}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Kontrollflussgraph - formale Definition:}{42}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Pfade im Kontrollflussgraphen - formale Definition}{42}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Kontrollflussgraphsegmente - formale Definition}{42}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Datenflussattribute eines Kontrollflussgraphen}{42}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Kontrollflussgraphsegmente mit Datenflussattributen}{43}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Inout-Parameterdiskussion und Aufruf von Prozeduren}{43}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Felder, globale Variablen und Strukturen}{43}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Datenflussgraph - formale Definition}{44}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Programm-Slices zur Fehlersuche und Änderungsfolgeschätzung}{44}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Datenfluss- und Kontrollflussanomalien}{45}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Undefined-Reference-Datenflussanomalie:}{45}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Defined-Defined-Datenflussanomalie:}{45}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Defined-Undefined-Datenflussanomalie:}{46}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Probleme mit statischer Datenflussanalyse für Datenstrukturen}{46}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Probleme mit statischer Datenflussanalyse bei Fallunterscheidungen}{46}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Definitionen starker Datenflussanomalien:}{46}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Softwaremetriken}{47}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Gewünschte Eigenschaften von Maß/Metrik}{48}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Maßskalen:}{48}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Berechnung der Regressionsgeraden:}{48}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Berechnung des Korrelationskoeffizienten r:}{49}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Auswertung von ordinalen/rationalen Metriken:}{49}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Gleichzeitige Darstellung mehrerer Messwerte mit Kiviatdiagramm}{49}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Lines of Code = LOC}{49}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{LOC(Programmteil) = Anzahl der Knoten im Kontrollflussgraphen}{50}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Zyklomatische Zahl(Komplexität) nach McCabe:}{50}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Interpretation und Probleme mit der zyklomatischen Zahl (Komplexität):}{51}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Halstead-Metriken - Eingangsgrößen:}{51}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Halstead-Metriken - Definition:}{52}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{''Live Variable''-Definition:}{52}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{''Variablenspanne''-Definition:}{52}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Anmerkung zu Live Variables und Variablenspanne:}{53}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Überlegungen zu Metriken für objektorientierte Programme:}{53}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Bindungsmetriken - LOCOM (Low Cohesion Metric)}{54}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Weitere Metriken}{54}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Komplexitätsmaße:}{55}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Zusammenfassung}{56}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Vorgehensweise beim Einsatz von Maßen}{56}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Dynamische Programmanalysen und Testen}{57}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Einleitung}{57}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Fehlerzustand, Fehlerwirkung und Fehlhandlung (DIN 66271):}{58}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Ursachenkette für Fehler (in Anlehnung an DIN 66271):}{58}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Validation und Verifikation (durch dynamische Tests):}{58}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Typische Programmierfehler nach [BP84]:}{59}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Was wird also getestet:}{60}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Wie wird getestet - Aufbau eines Testrahmens}{60}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Wie wird getestet - Arten von Testverfahren:}{61}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Diversifikationstestverfahren:}{61}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Mutationstestverfahren:}{61}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{N-Versionen-Programmierung (Back-to-Back-Testing):}{62}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Exkurs zur Berechnung von Ausfallwahrscheinlichkeiten:}{62}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Einfache Rechenregeln für System-Ausfallwahrscheinlichkeit:}{63}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Rekursive Rechenregel für System-Ausfallwahrscheinlichkeit}{63}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Alternative Berechnung der Ausfallwahrscheinlichkeit von n Versionen:}{63}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Komponententest (Unit-Test) und Subsystemtest:}{64}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Der Testprozess als Bestandteil des Softwareentwicklungsprozesses\relax }}{65}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Integrationtest:}{65}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Gängige Integrationsteststrategien:}{65}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Der Testprozess als Bestandteil des Softwareentwicklungsprozesses\relax }}{66}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Gängige Integrationsteststrategien\relax }}{67}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Systemtest - grundsätzliche Vorgehensweise:}{67}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Systemtest - nichtfunktionale Anforderungen:}{68}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Akzeptanztest (Abnahmetest):}{68}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Testen, testen, ... - wann ist Schluss damit?}{68}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Die sieben Grundsätze des Testens nach [SL19]:}{69}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Laufzeit- und Speicherplatzverbrauchsmessungen}{69}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Untersuchung des Laufzeitverhaltens eines Programms:}{69}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Laufzeit- und Speicherplatzverbrauchsmessungenn\relax }}{70}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Nutzen der ermittelten Daten:}{70}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Untersuchung des Speicherplatzverhaltens eines Programms:}{70}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Funktionsorientierte Testverfahren (Blackbox)}{71}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Kriterien für die Auswahl von Testdaten:}{71}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Regeln für die Festlegung von Eingabewerteklassen:}{71}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Auswahl von Testdaten aus Eingabewerteklassen:}{72}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Zusätzliche Wahl von Testdaten durch Grenzwertanalyse:}{73}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Auswahl von Testeingaben für countVowels (mit Zeichenketten!):}{73}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Weitere Regeln für die Bildung von Äquivalenzklassen bei Intervallen:}{74}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Grafische Darstellung von Äquivalenzklassen als Klassifikationsbaum\relax }}{74}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Grafische Darstellung von Äquivalenzklassen als Klassifikationsbaum:}{74}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Unvollständige/fehlerhafte Auswahl von Eingabewertekombinationen:}{74}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces Unvollständige/fehlerhafte Auswahl von Eingabewertekombinationen\relax }}{75}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Heuristiken für die Reduktion möglicher Eingabewertekombinationen:}{75}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{''Normierter'' Aufbau von Klassifikationsbäumen für Übung/Klausur:}{75}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Paarweiser Testansatz (Pairwise Testing):}{76}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Bewertung der funktionalen Äquivalenzklassenbildung:}{76}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Weitere Black-Box-Testverfahren}{76}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Ursache-Wirkungs-Graph-Analyse-Verfahren aus [SL19]}{77}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Anwendungsfallbasiertes Testen aus [SL19]:}{78}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Bewertung der Ursache-Wirkungs-Graph- und Anwendungsfall-Testens:}{78}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Fazit:}{78}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Kontrollflussbasierte Testverfahren (Whitebox)}{78}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Grundideen des kontrollflussbasierten Testens:}{78}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Kontrollflusstest - Anweisungsüberdeckung (C0-Test):}{79}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Kontrollflusstest - Zweigüberdeckung (C1-Test):}{79}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Kontrollflusstest - Entscheidungs-/Bedingungsüberdeckung:}{79}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Modifizierter Bedingungsüberdeckungstest (MCDC):}{80}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Kontrollflusstest - Pfadüberdeckung (C-unendlich-Test):}{80}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Bewertung der Kontrollflusstests:}{81}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Datenflussbasierte Testverfahren}{81}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Kriterien für den Datenflusstest}{82}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Zusammenfassung des überdeckungsbasierten Testens:}{82}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Testen objektorientierter Programme (zustandsbez. Testen)}{83}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Prinzipien beim Tests objektorientierter Programme:}{83}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Prinzipien beim Test einzelner Klassen}{84}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces Tabellarische Übersicht über verschiedene Arten von Klassen beim Testen:\relax }}{85}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Vorüberlegungen zur Realisierung von Invarianten,...:}{85}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Zusicherungen (Assertions) in Java:}{85}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Einsatz von Automaten (Statecharts) zur Testplanung:}{86}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces Einsatz von Automaten (Statecharts) zur Testplanung\relax }}{86}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Präzisierung der vier verschiedenen Arten von Klassen:}{86}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Definition von Testüberdeckungsmetriken für Statecharts:}{87}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Testplanung mit Transitionsbaum (Übergangsbaum) aus [Bi00]:}{87}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Behandlung ereignisloser Transitionen:}{88}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Ausführung der Testsequenzen:}{88}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Abschließende Checkliste für Klassentest nach [Bi00]:}{88}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.7}Mutationsbasierte Testverfahren}{89}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Hypothesen}{89}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Schlussfolgerungen}{89}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Anforderungen an (stark-)mutationserkennende Testfälle}{89}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Mutationsbasierte Testsuite-Bewertung:}{90}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Mutationsbasierte Testsuite-Generierung:}{90}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Bewertung des Ansatzes [ABL05]:}{90}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.8}Testmanagement und Testwerkzeuge}{91}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Aufgaben, Qualifikationen und Rollen nach [SL19]:}{91}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Weitere Aspekte des Testmanagements nach [SL19]:}{92}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Meldung von Fehlern/Fehlermanagement:}{92}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Arten von Testwerkzeugen:}{93}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.9}Zusammenfassung}{93}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Management der Software-Entwicklung}{94}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Themen dieses Kapitels}{94}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Aufgaben des Managements:}{94}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Ziele des Managements}{95}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Einflussfaktoren für Produktivität [ACF97]:}{95}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}''Neuere'' Vorgehensmodelle}{95}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Weitere Vorgehensmodelle:}{96}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Probleme mit dem Wasserfallmodell insgesamt:}{96}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Bewertung des evolutionären Modells:}{96}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {23}{\ignorespaces Evolutionäres Modell (evolutionäres Prototyping)\relax }}{97}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Rapid Prototyping (Throw-Away-Prototyping):}{97}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {24}{\ignorespaces Firma IBM (ehemals Rational) dominiert(e) Entwicklung der Standard-OO-Modellierungssprache UML und des zugehörigen Vorgehensmodells.\relax }}{98}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Rational Unified Process für UML}{98}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Phasen der Lebenszyklusgeneration}{98}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Eigenschaften des Rational Unified Prozesses (RUP):}{98}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Faustregeln für die Ausgestaltung eines Entwicklungsprozesses:}{99}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Anmerkungen zu den Arbeitsbereichen (Workflows) des RUP:}{100}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Bewertung des (Rational) Unified Prozesses:}{100}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Leichtgewichtige Prozessmodelle}{101}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Verbesserung der Prozessqualität}{101}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Qualitätssicherung mimt der ISO 9000:}{101}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Wichtige Teile:}{102}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Von ISO 9000-3 vorgeschriebene Dokumente:}{102}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Von ISO 9000-3 vorgeschriebene Tätigkeiten:}{102}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Bewertung von ISO 9000:}{103}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Das Capability Maturity Model (CMM):}{103}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{ISO 9000 und CMM im Vergleich}{104}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{SPiCE = Software Process Improvement and Capability dEtermination:}{105}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Unterschiede zu CMM:}{105}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Aktivitätsbereich von SPiCE:}{105}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{CMMI = Capability Maturity Model Integration (neue Version von CMM):}{106}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Eigenschaften von CMMI:}{106}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Eigenschaften von CMMI-Fortsetzung:}{107}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Konsequenzen für die ``eigene'' Software-Entwicklung:}{107}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Projektpläne und Projektorganisation}{108}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Terminologie:}{108}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Aufwands- und Kostenschätzung}{109}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Schätzverfahren im Überblick:}{109}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Einfluss von Programmiersprache auf Produktivität:\relax }}{110}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Konsequenzen für die Gesamtproduktivität:\relax }}{110}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Softwareumfang = Lines of Code?}{110}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Softwareumfang = Function Points!}{110}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Interne Entitäten\relax }}{111}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Datenbestände = Internal Logical File (ILF) = Interne Entitäten:}{111}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Referenzdateien = External Interface File = (EIF) = Externe Entitäten:}{111}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Externe Entitäten\relax }}{112}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Externe Eingaben\relax }}{112}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{(Externe) Eingabedaten = External Input (EI):}{112}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Externe Ausgaben = External Output (EO)}{112}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Externe Abfragen = External Inquiry (EQ):}{112}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Externe Ausgaben\relax }}{113}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {25}{\ignorespaces Überblick über die FP-Methode - 1 [Ba98]:\relax }}{113}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Zusätzliche Einflussfaktoren:}{113}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {26}{\ignorespaces Überblick über die FP-Methode - 2:\relax }}{114}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Ermittlung der FP-Aufwandskurve:}{115}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Nachkalkulation von Projekten mit ''Backfiring''-Methode:}{115}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Vorgehensweise bei Kostenschätzung (mit FP-Methode):}{115}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Einplanung von Zuschlägen (Faustformel nach Augustin):}{116}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Problem mit der Berechnung des Fertigstellungsgrades der Software:}{116}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Modifizierte Formel für korrigierte Aufwandsschätzung:}{116}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Erläuterungen zu Korrekturfaktor für Kostenschätzung:}{116}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Aufwandsverteilung auf Phasen bzw. Entwicklungsaktivitäten:}{117}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Bestimmung optimaler Entwicklungsdauer (Faustformel nach Jones):}{117}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Bewertung der FP-Methode:}{118}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Problematik der FP-Berechnung bei iterativer Vorgehensweise:}{118}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Vorgehensweise:}{118}\protected@file@percent }

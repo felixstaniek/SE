@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.14)  17 OCT 2019 14:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.14)  12 JAN 2020 16:15
 entering extended mode
 **./main.tex
 (main.tex
@@ -1689,19 +1689,444 @@ File: images/2_2_1.png Graphic file (type png)
 <use images/2_2_1.png>
 Package pdftex.def Info: images/2_2_1.png  used on input line 214.
 (pdftex.def)             Requested size: 425.41444pt x 253.38841pt.
-) [19 <./images/2_2_1.png>] [20] (main.aux)
+ [19 <./images/2_2_1.png>]
+<images/2_2_2.png, id=82, 280.6485pt x 141.52875pt>
+File: images/2_2_2.png Graphic file (type png)
+<use images/2_2_2.png>
+Package pdftex.def Info: images/2_2_2.png  used on input line 235.
+(pdftex.def)             Requested size: 250.24199pt x 126.19772pt.
+ [20 <./images/2_2_2.png>] [21] [22]
+Overfull \hbox (20.56337pt too wide) in paragraph at lines 318--321
+ \T1/cmr/bx/n/10.95 Va-ri-an-te des merge-Kommandos[] \T1/cmr/m/n/10.95 svn mer
+-ge <src1>[@<snapshot1>]<src2>[@<snapshot2>][<wcpath>] 
+ []
+
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 344--348
+
+ []
+
+<images/2_2_3.png, id=98, 466.74374pt x 208.98074pt>
+File: images/2_2_3.png Graphic file (type png)
+<use images/2_2_3.png>
+Package pdftex.def Info: images/2_2_3.png  used on input line 355.
+(pdftex.def)             Requested size: 400.38872pt x 179.27988pt.
+[24 <./images/2_2_3.png>] [25]
+<images/2_3_1.png, id=109, 381.8265pt x 276.43275pt>
+File: images/2_3_1.png Graphic file (type png)
+<use images/2_3_1.png>
+Package pdftex.def Info: images/2_3_1.png  used on input line 408.
+(pdftex.def)             Requested size: 300.29344pt x 217.40933pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 411--415
+
+ []
+
+[26 <./images/2_3_1.png>]
+<images/2_3_2.png, id=113, 464.33475pt x 126.4725pt>
+File: images/2_3_2.png Graphic file (type png)
+<use images/2_3_2.png>
+Package pdftex.def Info: images/2_3_2.png  used on input line 439.
+(pdftex.def)             Requested size: 425.41444pt x 115.87558pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[27]
+Underfull \hbox (badness 10000) in paragraph at lines 451--455
+
+ []
+
+[28 <./images/2_3_2.png>] [29] [30]
+Underfull \hbox (badness 10000) in paragraph at lines 555--567
+
+ []
+
+[31] [32]
+Overfull \hbox (1.66138pt too wide) in paragraph at lines 613--614
+[]\T1/cmr/bx/n/10.95 Autoconf \T1/cmr/m/n/10.95 un-ter-stützt Kon-fi-gu-ra-ti-o
+ns-pro-zess von Soft-wa-re durch Ge-ne-rie-rung von config.h-Skeletten,
+ []
+
+[33] [34]
+Overfull \hbox (20.98323pt too wide) in paragraph at lines 675--676
+[]\T1/cmr/m/n/10.95 flexibles Projektmanagement-Werkzeug \T1/cmr/bx/n/10.95 Red
+-mi-ne \T1/cmr/m/n/10.95 mit Auf-ga-ben-ver-wal-tung, Ver-si-ons-ver-wal-tung (
+cvs/sv-
+ []
+
+) (input/statische-programmanalyse-metriken.tex [35] [36] [37]
+<images/3_1_1.png, id=149, 296.307pt x 170.43675pt>
+File: images/3_1_1.png Graphic file (type png)
+<use images/3_1_1.png>
+Package pdftex.def Info: images/3_1_1.png  used on input line 75.
+(pdftex.def)             Requested size: 425.41444pt x 244.71872pt.
+<images/3_1_2.png, id=150, 463.13025pt x 288.47775pt>
+File: images/3_1_2.png Graphic file (type png)
+<use images/3_1_2.png>
+Package pdftex.def Info: images/3_1_2.png  used on input line 80.
+(pdftex.def)             Requested size: 425.41444pt x 264.98457pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[38 <./images/3_1_1.png>] [39 <./images/3_1_2.png>] [40] [41] [42]
+Underfull \hbox (badness 10000) in paragraph at lines 226--230
+
+ []
+
+[43] [44]
+Underfull \hbox (badness 10000) in paragraph at lines 286--290
+
+ []
+
+[45] [46] [47] [48]
+<images/3_1_3.png, id=186, 408.3255pt x 258.9675pt>
+File: images/3_1_3.png Graphic file (type png)
+<use images/3_1_3.png>
+Package pdftex.def Info: images/3_1_3.png  used on input line 452.
+(pdftex.def)             Requested size: 425.41444pt x 269.80981pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[49] [50 <./images/3_1_3.png>] [51]
+Underfull \hbox (badness 10000) in paragraph at lines 538--542
+
+ []
+
+
+Overfull \hbox (4.35262pt too wide) in paragraph at lines 545--549
+ \T1/cmr/bx/n/10.95 ''Variablenspanne''-Definition:[] \T1/cmr/m/n/10.95 Die \T1
+/cmr/bx/n/10.95 ''Variablenspannen''\T1/cmr/m/n/10.95 -Metrik ei-ner Pro-gramm-
+kom-po-nen-te be-rech-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 545--549
+
+ []
+
+[52]
+Underfull \hbox (badness 10000) in paragraph at lines 579--582
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 579--582
+
+ []
+
+[53] [54]
+Underfull \hbox (badness 10000) in paragraph at lines 642--646
+
+ []
+
+[55] [56]) (input/dynamische-programmanalysen-und-testen.tex
+<images/4_1.png, id=213, 457.71pt x 239.09325pt>
+File: images/4_1.png Graphic file (type png)
+<use images/4_1.png>
+Package pdftex.def Info: images/4_1.png  used on input line 8.
+(pdftex.def)             Requested size: 425.41444pt x 222.23036pt.
+ [57 <./images/4_1.png>] [58] [59]
+<images/4_1_1.png, id=223, 433.62pt x 196.93575pt>
+File: images/4_1_1.png Graphic file (type png)
+<use images/4_1_1.png>
+Package pdftex.def Info: images/4_1_1.png  used on input line 107.
+(pdftex.def)             Requested size: 425.41444pt x 193.21806pt.
+ [60 <./images/4_1_1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 153--158
+
+ []
+
+[61]
+Underfull \hbox (badness 10000) in paragraph at lines 198--203
+
+ []
+
+[62]
+<images/4_1_2.png, id=234, 626.34pt x 207.174pt>
+File: images/4_1_2.png Graphic file (type png)
+<use images/4_1_2.png>
+Package pdftex.def Info: images/4_1_2.png  used on input line 223.
+(pdftex.def)             Requested size: 425.41444pt x 140.71838pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[63]
+<images/4_1_3.png, id=238, 637.78275pt x 401.0985pt>
+File: images/4_1_3.png Graphic file (type png)
+<use images/4_1_3.png>
+Package pdftex.def Info: images/4_1_3.png  used on input line 253.
+(pdftex.def)             Requested size: 425.41444pt x 267.55338pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<images/4_1_4.png, id=239, 638.98724pt x 372.79276pt>
+File: images/4_1_4.png Graphic file (type png)
+<use images/4_1_4.png>
+Package pdftex.def Info: images/4_1_4.png  used on input line 260.
+(pdftex.def)             Requested size: 425.41444pt x 248.19417pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[64 <./images/4_1_2.png>] [65 <./images/4_1_3.png>] [66 <./images/4_1_4.png>]
+<images/4_1_5.png, id=252, 198.14024pt x 198.7425pt>
+File: images/4_1_5.png Graphic file (type png)
+<use images/4_1_5.png>
+Package pdftex.def Info: images/4_1_5.png  used on input line 324.
+(pdftex.def)             Requested size: 150.14671pt x 150.6122pt.
+
+Overfull \hbox (1.75336pt too wide) in paragraph at lines 332--333
+[]\T1/cmr/m/n/10.95 anstelle von Test-trei-bern und Test-stum-meln kom-men nun 
+so-weit mög-lich im-mer die rea-len (Hardware-
+ []
+
+[67 <./images/4_1_5.png>] [68]
+<images/4_2.png, id=260, 422.17725pt x 166.221pt>
+File: images/4_2.png Graphic file (type png)
+<use images/4_2.png>
+Package pdftex.def Info: images/4_2.png  used on input line 394.
+(pdftex.def)             Requested size: 425.41444pt x 167.5014pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[69] [70 <./images/4_2.png>] [71] [72] [73]
+<images/4_3.png, id=277, 468.5505pt x 112.0185pt>
+File: images/4_3.png Graphic file (type png)
+<use images/4_3.png>
+Package pdftex.def Info: images/4_3.png  used on input line 548.
+(pdftex.def)             Requested size: 425.41444pt x 101.70964pt.
+<images/4_3_1.png, id=278, 463.13025pt x 214.401pt>
+File: images/4_3_1.png Graphic file (type png)
+<use images/4_3_1.png>
+Package pdftex.def Info: images/4_3_1.png  used on input line 566.
+(pdftex.def)             Requested size: 425.41444pt x 196.9405pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[74 <./images/4_3.png>] [75 <./images/4_3_1.png>]
+Overfull \hbox (54.21082pt too wide) in paragraph at lines 606--607
+[]\T1/cmr/m/n/10.95 Test von Be-nut-ze-ro-ber-flä-chen, zeit-li-chen Be-schrän-
+kun-gen, Spei-cher-platz-be-schrän-kun-gen etc. (\T1/cmr/bx/n/10.95 nichtfunkti
+onale
+ []
+
+[76]
+Underfull \hbox (badness 10000) in paragraph at lines 642--646
+
+ []
+
+[77] [78]
+Underfull \hbox (badness 10000) in paragraph at lines 703--707
+
+ []
+
+[79] [80]
+Overfull \hbox (10.55301pt too wide) in paragraph at lines 747--748
+[]\T1/cmr/m/n/10.95 modifizierte Be-din-gungs-über-de-ckung wird durch RT-CA DO
+-178B-Standard für Software-Anwendungen
+ []
+
+[81] [82] [83]
+Overfull \hbox (7.08208pt too wide) in paragraph at lines 856--857
+[]\T1/cmr/m/n/10.95 Beispiel: Ge-rä-te-steue-rung mit setStatus-Methode und get
+Status-Methode, die nur 100.000 Status-
+ []
+
+<images/4_6.png, id=310, 467.94826pt x 178.266pt>
+File: images/4_6.png Graphic file (type png)
+<use images/4_6.png>
+Package pdftex.def Info: images/4_6.png  used on input line 869.
+(pdftex.def)             Requested size: 425.41444pt x 162.06453pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[84]
+Overfull \hbox (45.60751pt too wide) in paragraph at lines 884--885
+[]\T1/cmr/m/n/10.95 Java be-sitzt ab Ver-si-on 1.4 assert-Statement, das für 
+den Ein-bau von Über-prü-fun-gen (Vor-/Nachbedingungen,
+ []
+
+[85 <./images/4_6.png>]
+<images/4_6_1.png, id=318, 469.15276pt x 187.29974pt>
+File: images/4_6_1.png Graphic file (type png)
+<use images/4_6_1.png>
+Package pdftex.def Info: images/4_6_1.png  used on input line 898.
+(pdftex.def)             Requested size: 425.41444pt x 169.8457pt.
+ [86 <./images/4_6_1.png>]
+Overfull \hbox (6.28476pt too wide) in paragraph at lines 950--951
+ \T1/cmr/bx/n/10.95 Be-hand-lung er-eig-nis-lo-ser Tran-si-tio-nen:[] \T1/cmr/m
+/n/10.95 Au-to-ma-ten-mo-del-le für die Ver-hal-tens-be-schrei-bung wie UML-
+ []
+
+[87] [88] [89] [90] [91]
+Overfull \hbox (10.19499pt too wide) in paragraph at lines 1104--1105
+ \T1/cmr/bx/n/10.95 Ar-ten von Test-werk-zeu-gen:[] \T1/cmr/m/n/10.95 Test-werk
+-zeu-ge wer-den oft ''\T1/cmr/bx/n/10.95 Computer-Aided Soft-wa-re Test\T1/cmr/
+m/n/10.95 ''-Werkzeuge
+ []
+
+[92] [93]) (input/management-der-software-entwicklung.tex
+Underfull \hbox (badness 10000) in paragraph at lines 39--46
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--46
+
+ []
+
+[94] [95]
+<images/5_1_1.png, id=350, 297.5115pt x 264.38776pt>
+File: images/5_1_1.png Graphic file (type png)
+<use images/5_1_1.png>
+Package pdftex.def Info: images/5_1_1.png  used on input line 104.
+(pdftex.def)             Requested size: 250.24199pt x 222.38675pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[96]
+Underfull \hbox (badness 6542) in paragraph at lines 142--142
+[]\T1/cmr/m/n/10.95 Abbildung 24: |Fir-ma IBM (ehe-mals Ra-tio-nal) do-mi-niert
+(e) Ent-wick-lung der Standard-OO-
+ []
+
+<images/5_2.png, id=354, 470.35725pt x 233.673pt>
+File: images/5_2.png Graphic file (type png)
+<use images/5_2.png>
+Package pdftex.def Info: images/5_2.png  used on input line 143.
+(pdftex.def)             Requested size: 425.41444pt x 211.34845pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[97 <./images/5_1_1.png>] [98 <./images/5_2.png>]
+Overfull \hbox (6.45303pt too wide) in paragraph at lines 183--184
+[]\T1/cmr/m/n/10.95 innerhalb der Kon-struk-ti-ons-pha-se wird min-des-tens im 
+wö-chent-li-chen Ab-stand ein \T1/cmr/bx/n/10.95 in-ter-nes Software-
+ []
+
+[99]
+Overfull \hbox (1.3752pt too wide) in paragraph at lines 194--195
+[]\T1/cmr/bx/n/10.95 Configuration Ma-na-ge-ment \T1/cmr/m/n/10.95 be-fasst sic
+h mit der Ver-wal-tung von Soft-wa-re-ver-sio-nen und -varianten 
+ []
+
+[100]
+Underfull \hbox (badness 10000) in paragraph at lines 248--252
+
+ []
+
+[101] [102] [103] [104]
+Overfull \hbox (29.21791pt too wide) in paragraph at lines 431--435
+\T1/cmr/m/n/10.95 Modelle für un-ter-schied-li-che Entwicklungs-Disziplinen (z.
+B. für Software-Entwicklung oder System-Entwicklung),
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 431--435
+
+ []
+
+[105] [106] [107]
+Overfull \hbox (6.64706pt too wide) in paragraph at lines 537--538
+[]\T1/cmr/bx/n/10.95 Prozessarchitektur \T1/cmr/m/n/10.95 = grund-sätz-li-che V
+or-ge-hens-wei-se ei-ner Fir-ma für die Be-schrei-bung von Software-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 552--556
+
+ []
+
+[108] [109]
+Underfull \hbox (badness 10000) in paragraph at lines 636--640
+
+ []
+
+[110]
+Overfull \hbox (55.40115pt too wide) in paragraph at lines 660--671
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 675--680
+
+ []
+
+
+Overfull \hbox (55.40115pt too wide) in paragraph at lines 683--694
+ [][] 
+ []
+
+[111]
+Overfull \hbox (13.54596pt too wide) in paragraph at lines 711--722
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 726--731
+
+ []
+
+
+Overfull \hbox (43.18344pt too wide) in paragraph at lines 734--745
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 749--757
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 749--757
+
+ []
+
+[112]
+<images/5_5_1.png, id=406, 459.51675pt x 273.4215pt>
+File: images/5_5_1.png Graphic file (type png)
+<use images/5_5_1.png>
+Package pdftex.def Info: images/5_5_1.png  used on input line 761.
+(pdftex.def)             Requested size: 425.41444pt x 253.1362pt.
+<images/5_5_2.png, id=407, 440.24475pt x 260.172pt>
+File: images/5_5_2.png Graphic file (type png)
+<use images/5_5_2.png>
+Package pdftex.def Info: images/5_5_2.png  used on input line 767.
+(pdftex.def)             Requested size: 425.41444pt x 251.42168pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[113 <./images/5_5_1.png>] [114 <./images/5_5_2.png>] [115]
+Underfull \hbox (badness 10000) in paragraph at lines 837--848
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 837--848
+
+ []
+
+[116] [117]) [118] (main.aux)
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 47605 strings out of 492452
- 1097751 string characters out of 3120063
- 1686126 words of memory out of 3000000
- 51327 multiletter control sequences out of 15000+200000
+ 47774 strings out of 492452
+ 1100997 string characters out of 3120063
+ 1689126 words of memory out of 3000000
+ 51487 multiletter control sequences out of 15000+200000
  546436 words of font info for 61 fonts, out of 3000000 for 9000
  1143 hyphenation exceptions out of 8191
- 66i,7n,100p,840b,2195s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 66i,8n,100p,840b,2195s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\teodo\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\
 ecss1095.pk> <C:\Users\teodo\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/
 ec/dpi600\ecsl1095.pk> <C:\Users\teodo\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour
@@ -1712,10 +2137,21 @@ cal\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\teodo\
 AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Us
 ers\teodo\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.
 pk><C:/Users/teodo/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmsy10.pfb>
-Output written on main.pdf (20 pages, 554419 bytes).
+s/cm/cmex10.pfb><C:/Users/teodo/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cmextra/cmex8.pfb><C:/Users/teodo/AppData/Local/Programs/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/teodo/AppData/Local/Pro
+grams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/teodo/AppDa
+ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users
+/teodo/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.p
+fb><C:/Users/teodo/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmr6.pfb><C:/Users/teodo/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmr8.pfb><C:/Users/teodo/AppData/Local/Programs/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/teodo/AppData/Local/Programs/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/teodo/AppData/Local
+/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on main.pdf (118 pages, 1972190 bytes).
 PDF statistics:
- 436 PDF objects out of 1000 (max. 8388607)
+ 879 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 53 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 163 words of extra memory for PDF output out of 10000 (max. 10000000)
 
